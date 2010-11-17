@@ -1,6 +1,0 @@
-I pulled this directly from the SVN repo for Scala.
-
-This doesn't integrate with all of the other modules with Git, but:
-
- - It doesn't need to
- - I probably won't be using this that much.
