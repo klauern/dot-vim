@@ -1,0 +1,45 @@
+[submodule "nerdtree"]
+	path = nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "nerdcommenter"]
+	path = nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "vim-abolish"]
+	path = vim-abolish
+	url = git://github.com/tpope/vim-abolish.git
+[submodule "vim-cucumber"]
+	path = vim-cucumber
+	url = git://github.com/tpope/vim-cucumber.git
+[submodule "vim-endwise"]
+	path = vim-endwise
+	url = git://github.com/tpope/vim-endwise.git
+[submodule "vim-git"]
+	path = vim-git
+	url = git://github.com/tpope/vim-git.git
+[submodule "vim-haml"]
+	path = vim-haml
+	url = git://github.com/tpope/vim-haml.git
+[submodule "vim-rails"]
+	path = vim-rails
+	url = git://github.com/tpope/vim-rails.git
+[submodule "vim-javascript"]
+	path = vim-javascript
+	url = git://github.com/pangloss/vim-javascript.git
+[submodule "vim-rdoc"]
+	path = vim-rdoc
+	url = http://github.com/hallison/vim-rdoc.git
+[submodule "vim-repeat"]
+	path = vim-repeat
+	url = git://github.com/tpope/vim-repeat.git
+[submodule "vim-surround"]
+	path = vim-surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule "vim-unimpaired"]
+	path = vim-unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "vim-vividchalk"]
+	path = vim-vividchalk
+	url = git://github.com/tpope/vim-vividchalk.git
+[submodule "snipmate"]
+	path = snipmate
+	url = git://github.com/msanders/snipmate.vim.git
