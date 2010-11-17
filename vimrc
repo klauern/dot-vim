@@ -82,4 +82,19 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
-
+" Bundle: https://github.com/scrooloose/nerdtree.git
+" Bundle: https://github.com/scrooloose/nerdcommenter.git
+" Bundle: https://github.com/tpope/vim-abolish.git
+" Bundle: https://github.com/tpope/vim-cucumber.git
+" Bundle: https://github.com/tpope/vim-endwise.git
+" Bundle: https://github.com/tpope/vim-git.git
+" Bundle: https://github.com/tpope/vim-haml.git
+" Bundle: https://github.com/tpope/vim-rails.git
+" Bundle: https://github.com/pangloss/vim-javascript.git
+" Bundle: https://github.com/tpope/vim-repeat.git
+" Bundle: https://github.com/tpope/vim-surround.git
+" Bundle: https://github.com/tpope/vim-unimpaired.git
+" Bundle: https://github.com/tpope/vim-vividchalk.git
+" Bundle: https://github.com/msanders/snipmate.vim.git
+" Bundle: https://github.com/tpope/vim-fugitive.git
+" Bundle: https://github.com/hallison/vim-rdoc.git
