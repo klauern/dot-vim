@@ -2,7 +2,6 @@ runtime! autoload/pathogen.vim
 if exists('g:loaded_pathogen')
   call pathogen#runtime_append_all_bundles()
   call pathogen#helptags()
-  "call pathogen#runtime_prepend_subdirectories(expand('~/.vimbundles'))
 end
 
 set nocompatible
@@ -21,7 +20,7 @@ set backspace=indent,eol,start
 
 let g:GetLatestVimScripts_allowautoinstall= 1
 
-colorscheme ir_black
+colorscheme desert
 
 set incsearch  " jumps to search word as you type (annoying but excellent)
 
@@ -82,11 +81,6 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
-" Bundle: https://github.com/tpope/vim-abolish.git
-" Bundle: https://github.com/pangloss/vim-javascript.git
-" Bundle: https://github.com/tpope/vim-unimpaired.git
-" Bundle: https://github.com/hallison/vim-rdoc.git
-
 " Remove any text (like the '#') before BUNDLE to enable a plugin.
 " Generally Useful:
 " Bundle: https://github.com/scrooloose/nerdtree.git
@@ -96,17 +90,16 @@ vmap <C-Down> ]egv
 " Bundle: https://github.com/bronson/vim-trailing-whitespace.git
 " Bundle: https://github.com/Raimondi/YAIFA.git
 " Bundle: https://github.com/tpope/vim-vividchalk.git
+" Bundle: https://github.com/vim-scripts/desert.vim.git
 
-" BUNDLE: git://git.wincent.com/command-t.git
+" # BUNDLE: git://git.wincent.com/command-t.git
 " #   If rvm is installed, make sure we compile command-t with the system ruby
 " # BUNDLE-COMMAND: if which rvm >/dev/null 2>&1; then rvm system exec rake make; else rake make; fi
-"
-
 
 " Programming:
 " Bundle: https://github.com/scrooloose/nerdcommenter.git
 " Bundle: https://github.com/tpope/vim-surround.git
-" Bundle: git://github.com/vim-scripts/taglist.vim
+" # Bundle: https://github.com/vim-scripts/taglist.vim " Doesn't work for some reason.
 " Bundle: https://github.com/msanders/snipmate.vim.git
 " Bundle: https://github.com/scrooloose/snipmate-snippets.git
 " Bundle: https://github.com/vim-scripts/Align.git
@@ -119,6 +112,9 @@ vmap <C-Down> ]egv
 " Bundle: https://github.com/tpope/vim-markdown.git
 " Bundle: https://github.com/timcharper/textile.vim.git
 " Bundle: https://github.com/kchmck/vim-coffee-script.git
+" Bundle: https://github.com/tpope/vim-abolish.git
+" Bundle: https://github.com/pangloss/vim-javascript.git
+" Bundle: https://github.com/tpope/vim-unimpaired.git
 
 " Ruby/Rails Programming:
 " Bundle: https://github.com/vim-ruby/vim-ruby.git
@@ -129,3 +125,4 @@ vmap <C-Down> ]egv
 " Bundle: https://github.com/tpope/vim-cucumber.git
 " Bundle: https://github.com/tpope/vim-haml.git
 " Bundle: https://github.com/astashov/vim-ruby-debugger.git
+" Bundle: https://github.com/hallison/vim-rdoc.git
