@@ -82,19 +82,50 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
-" Bundle: https://github.com/scrooloose/nerdtree.git
-" Bundle: https://github.com/scrooloose/nerdcommenter.git
 " Bundle: https://github.com/tpope/vim-abolish.git
-" Bundle: https://github.com/tpope/vim-cucumber.git
-" Bundle: https://github.com/tpope/vim-endwise.git
-" Bundle: https://github.com/tpope/vim-git.git
-" Bundle: https://github.com/tpope/vim-haml.git
-" Bundle: https://github.com/tpope/vim-rails.git
 " Bundle: https://github.com/pangloss/vim-javascript.git
-" Bundle: https://github.com/tpope/vim-repeat.git
-" Bundle: https://github.com/tpope/vim-surround.git
 " Bundle: https://github.com/tpope/vim-unimpaired.git
-" Bundle: https://github.com/tpope/vim-vividchalk.git
-" Bundle: https://github.com/msanders/snipmate.vim.git
-" Bundle: https://github.com/tpope/vim-fugitive.git
 " Bundle: https://github.com/hallison/vim-rdoc.git
+
+" Remove any text (like the '#') before BUNDLE to enable a plugin.
+" Generally Useful:
+" Bundle: https://github.com/scrooloose/nerdtree.git
+" Bundle: https://github.com/vim-scripts/bufexplorer.zip.git
+" Bundle: https://github.com/bronson/vim-closebuffer.git
+" Bundle: https://github.com/vim-scripts/IndexedSearch.git
+" Bundle: https://github.com/bronson/vim-trailing-whitespace.git
+" Bundle: https://github.com/Raimondi/YAIFA.git
+" Bundle: https://github.com/tpope/vim-vividchalk.git
+
+" BUNDLE: git://git.wincent.com/command-t.git
+" #   If rvm is installed, make sure we compile command-t with the system ruby
+" # BUNDLE-COMMAND: if which rvm >/dev/null 2>&1; then rvm system exec rake make; else rake make; fi
+"
+
+
+" Programming:
+" Bundle: https://github.com/scrooloose/nerdcommenter.git
+" Bundle: https://github.com/tpope/vim-surround.git
+" Bundle: git://github.com/vim-scripts/taglist.vim
+" Bundle: https://github.com/msanders/snipmate.vim.git
+" Bundle: https://github.com/scrooloose/snipmate-snippets.git
+" Bundle: https://github.com/vim-scripts/Align.git
+" Bundle: https://github.com/tpope/vim-endwise.git
+" Bundle: https://github.com/tpope/vim-repeat.git
+" Bundle: https://github.com/tpope/vim-fugitive.git
+" Bundle: https://github.com/ervandew/supertab.git
+" Bundle: https://github.com/vim-scripts/jQuery.git
+" Bundle: https://github.com/tpope/vim-git.git
+" Bundle: https://github.com/tpope/vim-markdown.git
+" Bundle: https://github.com/timcharper/textile.vim.git
+" Bundle: https://github.com/kchmck/vim-coffee-script.git
+
+" Ruby/Rails Programming:
+" Bundle: https://github.com/vim-ruby/vim-ruby.git
+" Bundle: https://github.com/tpope/vim-rails.git
+" Bundle: https://github.com/tpope/vim-rake.git
+" # Bundle: https://github.com/janx/vim-rubytest.git
+" Bundle: https://github.com/tsaleh/vim-shoulda.git
+" Bundle: https://github.com/tpope/vim-cucumber.git
+" Bundle: https://github.com/tpope/vim-haml.git
+" Bundle: https://github.com/astashov/vim-ruby-debugger.git
