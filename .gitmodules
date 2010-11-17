@@ -25,9 +25,6 @@
 [submodule "bundle/vim-javascript"]
 	path = bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule "bundle/vim-rdoc"]
-	path = bundle/vim-rdoc
-	url = https://github.com/hallison/vim-rdoc.git
 [submodule "bundle/vim-repeat"]
 	path = bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
@@ -46,3 +43,6 @@
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim-rdoc"]
+	path = vim-rdoc
+	url = https://github.com/hallison/vim-rdoc.git
