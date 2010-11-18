@@ -5,11 +5,15 @@ if exists('g:loaded_pathogen')
 end
 
 set nocompatible
+set autoindent
+set copyindent
+set number
+set smartindent
+set shiftround
 syntax on
 filetype on
 filetype indent on
 filetype plugin on
-set number
 set hlsearch
 set tabstop=2
 set smarttab
@@ -17,6 +21,10 @@ set shiftwidth=2
 set autoindent
 set expandtab
 set backspace=indent,eol,start
+set vb t_vb=
+set ruler
+set history=1000
+set undolevels=1000
 
 let g:GetLatestVimScripts_allowautoinstall= 1
 
@@ -44,11 +52,27 @@ set wildmenu
 set wildmode=list:longest
 set visualbell
 set cursorline
-set ruler
 set ttyfast
 set laststatus=2
 "set relativenumber
 "set undofile
+
+" Switch syntax highlighting on, when the terminal has colors
+" " Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+	syntax on
+	color desert
+	colorscheme desert
+	set hlsearch
+"	set guifont=Consolas:h10
+endi
+
+set backspace=indent,eol,start " make backspace a more flexible
+" Ruby {
+" ruby standard 2 spaces, always
+au BufRead,BufNewFile *.rb,*.rhtml set shiftwidth=2 
+au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2 
+" }
 
 nnoremap / /\v
 vnoremap / /\v
