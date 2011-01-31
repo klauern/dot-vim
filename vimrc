@@ -115,6 +115,9 @@ vmap <C-Down> ]egv
 " Bundle: https://github.com/Raimondi/YAIFA.git
 " Bundle: https://github.com/tpope/vim-vividchalk.git
 " Bundle: https://github.com/vim-scripts/desert.vim.git
+" Bundle: https://github.com/vim-scripts/FuzzyFinder.git
+" Need the L-9 plugin fro FuzzyFinder
+" Bundle: https://github.com/vim-scripts/L9.git
 
 " # BUNDLE: git://git.wincent.com/command-t.git
 " #   If rvm is installed, make sure we compile command-t with the system ruby
