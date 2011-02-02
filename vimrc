@@ -18,6 +18,7 @@ if has("gui_running")
   endif
 endif
 
+	colorscheme zenburn
 
 set autoindent
 set copyindent
@@ -43,7 +44,6 @@ set undolevels=1000
 
 " let g:GetLatestVimScripts_allowautoinstall= 1
 
-colorscheme desert
 
 set incsearch  " jumps to search word as you type (annoying but excellent)
 
@@ -68,13 +68,11 @@ set undofile
 
 " Switch syntax highlighting on, when the terminal has colors
 " " Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-	syntax on
-	color desert
-	colorscheme desert
-	set hlsearch
+"if &t_Co > 2 || has("gui_running")
+"	syntax on
+"	set hlsearch
 "	set guifont=Consolas:h10
-endi
+"endi
 
 set backspace=indent,eol,start " make backspace a more flexible
 " Ruby {
@@ -133,6 +131,10 @@ vmap <C-Down> ]egv
 " Bundle: https://github.com/vim-scripts/FuzzyFinder.git
 " Need the L-9 plugin fro FuzzyFinder
 " Bundle: https://github.com/vim-scripts/L9.git
+
+" Colorscheme that isn't supposed to suck
+
+" Bundle: https://github.com/vim-scripts/Zenburn.git
 
 " # BUNDLE: git://git.wincent.com/command-t.git
 " #   If rvm is installed, make sure we compile command-t with the system ruby
