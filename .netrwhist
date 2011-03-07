@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/klauer/.config/.qwandry'
+let g:netrw_dirhist_2='/Users/klauer/.rvm/gems/ruby-1.9.2-p0/gems/rails-3.0.3'
+let g:netrw_dirhist_3='/Users/klauer/Programming/Java/codeswarm-read-only'
+let g:netrw_dirhist_4='/Users/klauer/.bash_sources'
+let g:netrw_dirhist_5='/Users/klauer'
+let g:netrw_dirhist_6='/Users/klauer/.bash_sources'
