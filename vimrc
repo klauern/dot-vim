@@ -28,9 +28,18 @@ set shiftround
 syntax on
 filetype on
 filetype indent on
-filetype plugin on
+
+
+filetype plugin indent on
+set tabstop=8 " Leave this 8 for legacy reasons; should also make it easier
+" to spot the hated hard-tab.
+" set softtabstop=4 " Real men use 4-space indents
+" set shiftwidth=4 " Now we can use < and > in visual (marking) mode to block
+" indent/unindent regions; also used at the beginning of lines thanks to
+" smarttab
+
 set hlsearch
-set tabstop=2
+" set tabstop=2
 set softtabstop=2
 set smarttab
 set shiftwidth=2
@@ -141,7 +150,7 @@ vmap <C-Down> ]egv
 " # BUNDLE-COMMAND: if which rvm >/dev/null 2>&1; then rvm system exec rake make; else rake make; fi
 
 " Programming:
-" # Bundle: https://github.com/scrooloose/nerdcommenter.git
+" Bundle: https://github.com/scrooloose/nerdcommenter.git
 " # Bundle: https://github.com/tpope/vim-surround.git
 " # Bundle: https://github.com/vim-scripts/taglist.vim " Doesn't work for some reason.
 " # Bundle: https://github.com/msanders/snipmate.vim.git
