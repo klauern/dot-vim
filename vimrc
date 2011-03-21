@@ -155,7 +155,6 @@ Bundle "https://github.com/vim-scripts/FuzzyFinder.git"
 Bundle "https://github.com/vim-scripts/Zenburn.git"
 
 " Programming:
-<<<<<<< HEAD
 Bundle "https://github.com/scrooloose/nerdcommenter.git"
 Bundle "https://github.com/tpope/vim-surround.git"
 Bundle "https://github.com/vim-scripts/Align.git"
@@ -174,26 +173,6 @@ Bundle "https://github.com/kchmck/vim-coffee-script.git"
 Bundle "https://github.com/pangloss/vim-javascript.git"
 Bundle "https://github.com/tpope/vim-unimpaired.git"
 " Bundle "https://github.com/tpope/vim-abolish.git"
-=======
-" Bundle: https://github.com/scrooloose/nerdcommenter.git
-" # Bundle: https://github.com/tpope/vim-surround.git
-" # Bundle: https://github.com/vim-scripts/taglist.vim " Doesn't work for some reason.
-" # Bundle: https://github.com/msanders/snipmate.vim.git
-" # Bundle: https://github.com/scrooloose/snipmate-snippets.git
-" Bundle: https://github.com/vim-scripts/Align.git
-" # Bundle: https://github.com/tpope/vim-endwise.git
-" # Bundle: https://github.com/tpope/vim-repeat.git
-" # Bundle: https://github.com/tpope/vim-fugitive.git
-" # Bundle: https://github.com/ervandew/supertab.git
-" # Bundle: https://github.com/vim-scripts/jQuery.git
-" Bundle: https://github.com/tpope/vim-git.git
-" Bundle: https://github.com/tpope/vim-markdown.git
-" # Bundle: https://github.com/timcharper/textile.vim.git
-" # Bundle: https://github.com/kchmck/vim-coffee-script.git
-" # Bundle: https://github.com/tpope/vim-abolish.git
-" Bundle: https://github.com/pangloss/vim-javascript.git
-" Bundle: https://github.com/tpope/vim-unimpaired.git
->>>>>>> c34adbf330445eec153cb124e994a1f4eafd4139
 
 " Ruby/Rails Programming:
 Bundle "https://github.com/vim-ruby/vim-ruby.git"
