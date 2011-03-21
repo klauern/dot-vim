@@ -30,9 +30,18 @@ set shiftround
 syntax on
 filetype on
 filetype indent on
-filetype plugin on
+
+
+filetype plugin indent on
+set tabstop=8 " Leave this 8 for legacy reasons; should also make it easier
+" to spot the hated hard-tab.
+" set softtabstop=4 " Real men use 4-space indents
+" set shiftwidth=4 " Now we can use < and > in visual (marking) mode to block
+" indent/unindent regions; also used at the beginning of lines thanks to
+" smarttab
+
 set hlsearch
-set tabstop=2
+" set tabstop=2
 set softtabstop=2
 set smarttab
 set shiftwidth=2
@@ -146,6 +155,7 @@ Bundle "https://github.com/vim-scripts/FuzzyFinder.git"
 Bundle "https://github.com/vim-scripts/Zenburn.git"
 
 " Programming:
+<<<<<<< HEAD
 Bundle "https://github.com/scrooloose/nerdcommenter.git"
 Bundle "https://github.com/tpope/vim-surround.git"
 Bundle "https://github.com/vim-scripts/Align.git"
@@ -164,6 +174,26 @@ Bundle "https://github.com/kchmck/vim-coffee-script.git"
 Bundle "https://github.com/pangloss/vim-javascript.git"
 Bundle "https://github.com/tpope/vim-unimpaired.git"
 " Bundle "https://github.com/tpope/vim-abolish.git"
+=======
+" Bundle: https://github.com/scrooloose/nerdcommenter.git
+" # Bundle: https://github.com/tpope/vim-surround.git
+" # Bundle: https://github.com/vim-scripts/taglist.vim " Doesn't work for some reason.
+" # Bundle: https://github.com/msanders/snipmate.vim.git
+" # Bundle: https://github.com/scrooloose/snipmate-snippets.git
+" Bundle: https://github.com/vim-scripts/Align.git
+" # Bundle: https://github.com/tpope/vim-endwise.git
+" # Bundle: https://github.com/tpope/vim-repeat.git
+" # Bundle: https://github.com/tpope/vim-fugitive.git
+" # Bundle: https://github.com/ervandew/supertab.git
+" # Bundle: https://github.com/vim-scripts/jQuery.git
+" Bundle: https://github.com/tpope/vim-git.git
+" Bundle: https://github.com/tpope/vim-markdown.git
+" # Bundle: https://github.com/timcharper/textile.vim.git
+" # Bundle: https://github.com/kchmck/vim-coffee-script.git
+" # Bundle: https://github.com/tpope/vim-abolish.git
+" Bundle: https://github.com/pangloss/vim-javascript.git
+" Bundle: https://github.com/tpope/vim-unimpaired.git
+>>>>>>> c34adbf330445eec153cb124e994a1f4eafd4139
 
 " Ruby/Rails Programming:
 Bundle "https://github.com/vim-ruby/vim-ruby.git"
