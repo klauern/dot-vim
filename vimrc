@@ -20,7 +20,7 @@ if has("gui_running")
   endif
 endif
 
-"colorscheme zenburn
+colorscheme zenburn
 
 set autoindent
 set copyindent
