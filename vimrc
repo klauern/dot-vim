@@ -13,14 +13,19 @@ set nocompatible
 set modelines=0
 
 if has("gui_running")
+  set background=light
+  " colorscheme solarized " A little too bright for me on Windows
+  colorscheme zenburn
   if has("gui_gtk2")
     set guifont=Inconsolata\ 12
   elseif has("gui_win32")
     set guifont=Consolas:h11
   endif
+else
+  set background=dark
+  colorscheme solarized
 endif
 
-"colorscheme zenburn
 
 set autoindent
 set copyindent
@@ -52,7 +57,8 @@ set vb t_vb=
 set ruler
 set history=1000
 set undolevels=1000
-
+set nobackup
+set writebackup
 " let g:GetLatestVimScripts_allowautoinstall= 1
 
 
@@ -74,10 +80,12 @@ set visualbell
 set ttyfast
 set laststatus=2
 set relativenumber
-set undofile
+"set undofile
 
 nnoremap <silent> <Leader>r :set relativenumber<CR> " backslash r to use relative numbers
 nnoremap <silent> <Leader>n :set number<CR>         " backslash n to use regular line numbers
+
+nnoremap <silent> = :ZoomReset<CR>
 
 " Cursor Color highlight
 :hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
@@ -153,9 +161,9 @@ Bundle "https://github.com/vim-scripts/FuzzyFinder.git"
 
 " Colorscheme that isn't supposed to suck
 Bundle "https://github.com/vim-scripts/Zenburn.git"
+Bundle "https://github.com/altercation/vim-colors-solarized.git"
 
 " Programming:
-<<<<<<< HEAD
 Bundle "https://github.com/scrooloose/nerdcommenter.git"
 Bundle "https://github.com/tpope/vim-surround.git"
 Bundle "https://github.com/vim-scripts/Align.git"
@@ -168,32 +176,14 @@ Bundle "https://github.com/vim-scripts/Align.git"
 " Bundle "https://github.com/ervandew/supertab.git"
 Bundle "https://github.com/vim-scripts/jQuery.git"
 Bundle "https://github.com/tpope/vim-git.git"
-Bundle "https://github.com/tpope/vim-markdown.git"
+" Bundle "https://github.com/tpope/vim-markdown.git"
+Bundle "Markdown"
+Bundle "zoom.vim"
 Bundle "https://github.com/kchmck/vim-coffee-script.git"
 " Bundle "https://github.com/timcharper/textile.vim.git"
 Bundle "https://github.com/pangloss/vim-javascript.git"
 Bundle "https://github.com/tpope/vim-unimpaired.git"
 " Bundle "https://github.com/tpope/vim-abolish.git"
-=======
-" Bundle: https://github.com/scrooloose/nerdcommenter.git
-" # Bundle: https://github.com/tpope/vim-surround.git
-" # Bundle: https://github.com/vim-scripts/taglist.vim " Doesn't work for some reason.
-" # Bundle: https://github.com/msanders/snipmate.vim.git
-" # Bundle: https://github.com/scrooloose/snipmate-snippets.git
-" Bundle: https://github.com/vim-scripts/Align.git
-" # Bundle: https://github.com/tpope/vim-endwise.git
-" # Bundle: https://github.com/tpope/vim-repeat.git
-" # Bundle: https://github.com/tpope/vim-fugitive.git
-" # Bundle: https://github.com/ervandew/supertab.git
-" # Bundle: https://github.com/vim-scripts/jQuery.git
-" Bundle: https://github.com/tpope/vim-git.git
-" Bundle: https://github.com/tpope/vim-markdown.git
-" # Bundle: https://github.com/timcharper/textile.vim.git
-" # Bundle: https://github.com/kchmck/vim-coffee-script.git
-" # Bundle: https://github.com/tpope/vim-abolish.git
-" Bundle: https://github.com/pangloss/vim-javascript.git
-" Bundle: https://github.com/tpope/vim-unimpaired.git
->>>>>>> c34adbf330445eec153cb124e994a1f4eafd4139
 
 " Ruby/Rails Programming:
 Bundle "https://github.com/vim-ruby/vim-ruby.git"
@@ -205,3 +195,4 @@ Bundle "https://github.com/hallison/vim-rdoc.git"
 " Bundle "https://github.com/tsaleh/vim-shoulda.git"
 " Bundle "https://github.com/tpope/vim-haml.git"
 " Bundle "https://github.com/astashov/vim-ruby-debugger.git"
+Bundle "https://github.com/henrik/vim-ruby-runner.git"
