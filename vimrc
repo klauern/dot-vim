@@ -22,8 +22,8 @@ if has("gui_running")
     set guifont=Consolas:h11
   endif
 else
-  set background=dark
-  colorscheme solarized
+  "set background=light
+  colorscheme desert
 endif
 
 
@@ -85,7 +85,7 @@ set relativenumber
 nnoremap <silent> <Leader>r :set relativenumber<CR> " backslash r to use relative numbers
 nnoremap <silent> <Leader>n :set number<CR>         " backslash n to use regular line numbers
 
-nnoremap <silent> = :ZoomReset<CR>
+" nnoremap <silent> = :ZoomReset<CR>
 
 " Cursor Color highlight
 :hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
