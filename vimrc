@@ -26,7 +26,6 @@ else
   colorscheme desert
 endif
 
-
 set autoindent
 set copyindent
 set number
