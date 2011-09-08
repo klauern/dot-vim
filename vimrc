@@ -22,8 +22,8 @@ if has("gui_running")
     set guifont=Consolas:h11
   endif
 else
-  set background=dark
-  colorscheme solarized
+  "set background=light
+  colorscheme desert
 endif
 
 set autoindent
@@ -84,7 +84,7 @@ set relativenumber
 nnoremap <silent> <Leader>r :set relativenumber<CR> " backslash r to use relative numbers
 nnoremap <silent> <Leader>n :set number<CR>         " backslash n to use regular line numbers
 
-nnoremap <silent> = :ZoomReset<CR>
+" nnoremap <silent> = :ZoomReset<CR>
 
 " Cursor Color highlight
 :hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
@@ -190,6 +190,9 @@ Bundle "https://github.com/tpope/vim-rails.git"
 Bundle "https://github.com/tpope/vim-rake.git"
 Bundle "https://github.com/tpope/vim-cucumber.git"
 Bundle "https://github.com/hallison/vim-rdoc.git"
+
+" Web Dev
+Bundle "https://github.com/cakebaker/scss-syntax.vim.git"
 " Bundle "https://github.com/janx/vim-rubytest.git"
 " Bundle "https://github.com/tsaleh/vim-shoulda.git"
 " Bundle "https://github.com/tpope/vim-haml.git"
