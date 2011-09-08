@@ -190,6 +190,9 @@ Bundle "https://github.com/tpope/vim-rails.git"
 Bundle "https://github.com/tpope/vim-rake.git"
 Bundle "https://github.com/tpope/vim-cucumber.git"
 Bundle "https://github.com/hallison/vim-rdoc.git"
+
+" Web Dev
+Bundle "https://github.com/cakebaker/scss-syntax.vim.git"
 " Bundle "https://github.com/janx/vim-rubytest.git"
 " Bundle "https://github.com/tsaleh/vim-shoulda.git"
 " Bundle "https://github.com/tpope/vim-haml.git"
