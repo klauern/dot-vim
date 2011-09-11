@@ -12,10 +12,15 @@ set rtp+=~/.vim/vundle.git/
 set nocompatible
 set modelines=0
 
+if has('relativenumber')
+  set relativenumber
+endif
+
 if has("gui_running")
   set background=light
   " colorscheme solarized " A little too bright for me on Windows
   colorscheme zenburn
+  set guioptions=egmrt
   if has("gui_gtk2")
     set guifont=Inconsolata\ 12
   elseif has("gui_win32")
@@ -28,7 +33,7 @@ endif
 
 set autoindent
 set copyindent
-set number
+"set number
 set smartindent
 set shiftround
 syntax on
@@ -78,7 +83,6 @@ set wildmode=list:longest
 set visualbell
 set ttyfast
 set laststatus=2
-set relativenumber
 "set undofile
 
 nnoremap <silent> <Leader>r :set relativenumber<CR> " backslash r to use relative numbers
