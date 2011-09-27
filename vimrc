@@ -10,7 +10,7 @@ end
 set rtp+=~/.vim/vundle.git/ 
 
 set nocompatible
-set modelines=0
+"set modelines=0
 
 if has('relativenumber')
   set relativenumber
@@ -26,6 +26,7 @@ if has("gui_running")
     set guifont=Inconsolata\ 12
   elseif has("gui_win32")
     set guifont=Consolas:h11
+    source $VIMRUNTIME/mswin.vim
   endif
 else
   "set background=light
@@ -34,7 +35,6 @@ endif
 
 set autoindent
 set copyindent
-"set number
 set smartindent
 set shiftround
 syntax on
@@ -126,7 +126,7 @@ vnoremap <tab> %
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-if has('colorcolumn')
+if has("colorcolumn")
   set colorcolumn=85
 endif
 
