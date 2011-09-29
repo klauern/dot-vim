@@ -19,8 +19,7 @@ endif
 if has("gui_running")
   set background=light
    "colorscheme solarized " A little too bright for me on Windows
-  "colorscheme zenburn
-  colorscheme Tomorrow-Night-Bright
+  colorscheme zenburn
   set guioptions=egmrt
   "set guioptions-=T " Turn off Toolbar http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
   if has("gui_gtk2")
@@ -28,6 +27,7 @@ if has("gui_running")
   elseif has("gui_win32")
     set guifont=Consolas:h11
     source $VIMRUNTIME/mswin.vim
+    colorscheme Tomorrow-Night-Bright
   endif
 else
   "set background=light
