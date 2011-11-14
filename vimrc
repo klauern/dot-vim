@@ -68,6 +68,8 @@ set nobackup
 set writebackup
 " let g:GetLatestVimScripts_allowautoinstall= 1
 
+let g:slimv_swank_clojure = '! xterm -e lein swank &'
+let vimclojure#NailgunClient = "/Users/klauer/Programming/Clojure/vimclojure-nailgun-client/ng"
 
 set incsearch  " jumps to search word as you type (annoying but excellent)
 
@@ -158,6 +160,7 @@ Bundle "https://github.com/scrooloose/nerdtree.git"
 " Need the L-9 plugin fro FuzzyFinder
 Bundle "https://github.com/vim-scripts/L9.git"
 Bundle "https://github.com/vim-scripts/FuzzyFinder.git"
+Bundle "VimClojure"
 " Bundle "https://github.com/vim-scripts/bufexplorer.zip.git"
 " Bundle "https://github.com/bronson/vim-closebuffer.git"
 " Bundle "https://github.com/vim-scripts/IndexedSearch.git"
@@ -178,7 +181,7 @@ Bundle "https://github.com/vim-scripts/Align.git"
 " Bundle "https://github.com/scrooloose/snipmate-snippets.git"
 " Bundle "https://github.com/tpope/vim-endwise.git"
 " Bundle "https://github.com/tpope/vim-repeat.git"
-" Bundle "https://github.com/tpope/vim-fugitive.git"
+ Bundle "https://github.com/tpope/vim-fugitive.git"
 " Bundle "https://github.com/ervandew/supertab.git"
 Bundle "https://github.com/vim-scripts/jQuery.git"
 Bundle "https://github.com/tpope/vim-git.git"
@@ -190,6 +193,7 @@ Bundle "https://github.com/kchmck/vim-coffee-script.git"
 Bundle "https://github.com/pangloss/vim-javascript.git"
 Bundle "https://github.com/tpope/vim-unimpaired.git"
 " Bundle "https://github.com/tpope/vim-abolish.git"
+Bundle "slimv.vim"
 
 " Ruby/Rails Programming:
 Bundle "https://github.com/vim-ruby/vim-ruby.git"
