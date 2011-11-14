@@ -1,3 +1,4 @@
+" The ^ is important, don't mess with it...
 set runtimepath^=~/.vim
 set fileformats=unix,dos,mac
 filetype off
@@ -20,6 +21,7 @@ if has("gui_running")
   set background=light
    "colorscheme solarized " A little too bright for me on Windows
   colorscheme zenburn
+  "colorscheme Tomorrow-Night
   set guioptions=egmrt
   "set guioptions-=T " Turn off Toolbar http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
   if has("gui_gtk2")
@@ -27,11 +29,12 @@ if has("gui_running")
   elseif has("gui_win32")
     set guifont=Consolas:h11
     source $VIMRUNTIME/mswin.vim
-    colorscheme Tomorrow-Night-Bright
+    colorscheme Tomorrow-Night
+    winp 0 0
+    win 300 300 " It'll be too large but just maximize enough
+
   endif
 else
-  "set background=light
-  "colorscheme desert
   colorscheme Tomorrow-Night
 endif
 
@@ -53,7 +56,6 @@ set tabstop=8 " Leave this 8 for legacy reasons; should also make it easier
 " smarttab
 
 set hlsearch
-" set tabstop=2
 set softtabstop=2
 set smarttab
 set shiftwidth=2
@@ -172,6 +174,13 @@ Bundle "VimClojure"
 Bundle "https://github.com/vim-scripts/Zenburn.git"
 Bundle "https://github.com/altercation/vim-colors-solarized.git"
 
+Bundle "Command-T"
+Bundle "Tabular"
+Bundle "VimClojure"
+Bundle "Solarized"
+Bundle "groovy.vim"
+Bundle "xml.vim"
+
 " Programming:
 Bundle "https://github.com/scrooloose/nerdcommenter.git"
 Bundle "https://github.com/tpope/vim-surround.git"
@@ -181,31 +190,25 @@ Bundle "https://github.com/vim-scripts/Align.git"
 " Bundle "https://github.com/scrooloose/snipmate-snippets.git"
 " Bundle "https://github.com/tpope/vim-endwise.git"
 " Bundle "https://github.com/tpope/vim-repeat.git"
- Bundle "https://github.com/tpope/vim-fugitive.git"
 " Bundle "https://github.com/ervandew/supertab.git"
+Bundle "https://github.com/tpope/vim-fugitive.git"
 Bundle "https://github.com/vim-scripts/jQuery.git"
 Bundle "https://github.com/tpope/vim-git.git"
-" Bundle "https://github.com/tpope/vim-markdown.git"
 Bundle "Markdown"
 Bundle "zoom.vim"
 Bundle "https://github.com/kchmck/vim-coffee-script.git"
-" Bundle "https://github.com/timcharper/textile.vim.git"
 Bundle "https://github.com/pangloss/vim-javascript.git"
 Bundle "https://github.com/tpope/vim-unimpaired.git"
 " Bundle "https://github.com/tpope/vim-abolish.git"
-Bundle "slimv.vim"
 
 " Ruby/Rails Programming:
-Bundle "https://github.com/vim-ruby/vim-ruby.git"
 Bundle "https://github.com/tpope/vim-rails.git"
-Bundle "https://github.com/tpope/vim-rake.git"
+Bundle "https://github.com/vim-ruby/vim-ruby.git"
+"Bundle "https://github.com/tpope/vim-rake.git"
 Bundle "https://github.com/tpope/vim-cucumber.git"
-Bundle "https://github.com/hallison/vim-rdoc.git"
+"Bundle "https://github.com/hallison/vim-rdoc.git"
 
 " Web Dev
 Bundle "https://github.com/cakebaker/scss-syntax.vim.git"
-" Bundle "https://github.com/janx/vim-rubytest.git"
-" Bundle "https://github.com/tsaleh/vim-shoulda.git"
-" Bundle "https://github.com/tpope/vim-haml.git"
-" Bundle "https://github.com/astashov/vim-ruby-debugger.git"
-Bundle "https://github.com/henrik/vim-ruby-runner.git"
+
+
