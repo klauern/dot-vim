@@ -291,8 +291,7 @@ set foldtext=CustomFoldText()
 " }}}
 " Plugin and Filetype Settings -------------------------------------------- {{{
 "   Clojure {{{
-
-" VimClojure {{{
+"       VimClojure {{{
 " To run, make sure you follow some instructions here: https://bitbucket.org/kotarak/vimclojure
 " you need to make a plugin dependency
 let vimclojure#WantNailgun = 0
@@ -300,11 +299,11 @@ let vimclojure#NailgunClient = "C:\\mydocs\\Clojure\\vimclojure-nailgun-client\\
 let g:vimclojure#ParenRainbow = 1
 let g:vimclojure#DynamicHighlighting = 1
 " }}}
-" SLIMV {{{
+"       SLIMV {{{
 let g:slimv_leader = '\'
 let g:slimv_keybindings = 2
 " }}}
-" filetype clojure {{{
+"       filetype clojure {{{
 augroup ft_clojure
     au!
 
