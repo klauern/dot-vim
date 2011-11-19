@@ -5,12 +5,58 @@ call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 set nocompatible
 
-" set fileformats=unix,dos,mac
-" set modelines=0
+" Basic options ----------------------------------------------------------- {{{
+set encoding=utf-8
+set modelines=0
+set autoindent
+set showmode
+set showcmd
+set hidden
+set visualbell
+set cursorline
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set nonumber
+set norelativenumber
+set laststatus=2
+set history=1000
+" set undofile
+set undoreload=10000
+set cpoptions+=J
+set list
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set shell=/bin/bash
+set lazyredraw
+set matchtime=3
+set showbreak=↪
+set splitbelow
+set splitright
+set fillchars=diff:⣿
+set ttimeout
+set notimeout
+set nottimeout
+set autowrite
+set shiftround
+set autoread
+set title
 
-if has('relativenumber')
-  set relativenumber
-endif
+" Tabs, spaces, wrapping {{{
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set wrap
+set textwidth=80
+set formatoptions=qrn1
+set colorcolumn=+1
+
+" }}}
+
+"if has('relativenumber')
+"  set relativenumber
+"endif
 
 if has("gui_running")
   set background=light
@@ -27,36 +73,27 @@ if has("gui_running")
     colorscheme Tomorrow-Night
     winp 0 0
     win 300 300 " It'll be too large but just maximize enough
-
   endif
 else
   colorscheme Tomorrow-Night
 endif
 
-set autoindent
-set copyindent
-set smartindent
-set shiftround
-syntax on
-filetype on
-filetype indent on
+"set copyindent
+"set smartindent
+
+"syntax on
+"filetype on
+"filetype indent on
+
 
 
 filetype plugin indent on
-set tabstop=8 " Leave this 8 for legacy reasons; should also make it easier
-" to spot the hated hard-tab.
-" set softtabstop=4 " Real men use 4-space indents
-" set shiftwidth=4 " Now we can use < and > in visual (marking) mode to block
-" indent/unindent regions; also used at the beginning of lines thanks to
-" smarttab
-
 set hlsearch
 set softtabstop=2
 set smarttab
 set shiftwidth=2
 set autoindent
 set expandtab
-set backspace=indent,eol,start
 set vb t_vb=
 set ruler
 set history=1000
@@ -71,14 +108,7 @@ nmap <silent> <c-n> :NERDTreeToggle<CR>
 
 " from
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/#important-vimrc-lines
-set encoding=utf-8
 set scrolloff=3
-set showmode
-set showcmd
-set hidden
-set visualbell
-set ttyfast
-set laststatus=2
 "set undofile
 
 " Backup directories
@@ -151,7 +181,7 @@ nmap <C-Down> ]e
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
-
+" }}}
 " Wildmenu completion {{{
 
 set wildmenu
@@ -170,7 +200,6 @@ set wildignore+=classes
 set wildignore+=lib
 
 " }}}
-
 " Clojure {{{
 
 " VimClojure {{{
