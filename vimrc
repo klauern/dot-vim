@@ -1,17 +1,12 @@
+filetype off
 " The ^ is important, don't mess with it...
 set runtimepath^=~/.vim
-set fileformats=unix,dos,mac
-filetype off
-runtime! autoload/pathogen.vim
-if exists('g:loaded_pathogen')
-  call pathogen#runtime_append_all_bundles()
-  call pathogen#helptags()
-end
-
-set rtp+=~/.vim/vundle.git/ 
-
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
 set nocompatible
-"set modelines=0
+
+" set fileformats=unix,dos,mac
+" set modelines=0
 
 if has('relativenumber')
   set relativenumber
@@ -21,9 +16,9 @@ if has("gui_running")
   set background=light
    "colorscheme solarized " A little too bright for me on Windows
   colorscheme zenburn
-  "colorscheme Tomorrow-Night
+  " colorscheme Tomorrow-Night
   set guioptions=egmrt
-  "set guioptions-=T " Turn off Toolbar http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
+  " set guioptions-=T " Turn off Toolbar http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
   if has("gui_gtk2")
     set guifont=Inconsolata\ 12
   elseif has("gui_win32")
@@ -81,12 +76,19 @@ set scrolloff=3
 set showmode
 set showcmd
 set hidden
-set wildmenu
-set wildmode=list:longest
 set visualbell
 set ttyfast
 set laststatus=2
 "set undofile
+
+" Backup directories
+" set undodir=~/.vim/tmp/undo//     " undo files
+" set backupdir=~/.vim/tmp/backup// " backups
+" set directory=~/.vim/tmp/swap//   " swap files
+" set backup                        " enable backups
+
+" comma better than \
+let mapleader = ","
 
 nnoremap <silent> <Leader>r :set relativenumber<CR> " backslash r to use relative numbers
 nnoremap <silent> <Leader>n :set number<CR>         " backslash n to use regular line numbers
@@ -150,10 +152,122 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
+" Wildmenu completion {{{
+
+set wildmenu
+set wildmode=list:longest
+
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX bullshit
+
+" Clojure/Leiningen
+set wildignore+=classes
+set wildignore+=lib
+
+" }}}
+
+" Clojure {{{
+
+" VimClojure {{{
+" To run, make sure you follow some instructions here: https://bitbucket.org/kotarak/vimclojure
+" you need to make a plugin dependency
+let vimclojure#WantNailgun = 0
+let vimclojure#NailgunClient = "C:\\mydocs\\Clojure\\vimclojure-nailgun-client\\ng.exe"
+let g:vimclojure#ParenRainbow = 1
+let g:vimclojure#DynamicHighlighting = 1
+" }}}
+" SLIMV {{{
+let g:slimv_leader = '\'
+let g:slimv_keybindings = 2
+" }}}
+
+" filetype clojure {{{
+augroup ft_clojure
+    au!
+
+    au FileType clojure call TurnOnClojureFolding()
+    au FileType clojure compiler clojure
+    au FileType clojure setlocal report=100000
+    au FileType clojure nnoremap <buffer> o jI<cr><esc>kA
+    au FileType clojure nnoremap <buffer> O I<cr><esc>kA
+
+    au BufWinEnter        Slimv.REPL.clj setlocal winfixwidth
+    au BufNewFile,BufRead Slimv.REPL.clj setlocal nowrap
+    au BufNewFile,BufRead Slimv.REPL.clj setlocal foldlevel=99
+    au BufNewFile,BufRead Slimv.REPL.clj nnoremap <buffer> A GA
+    au BufNewFile,BufRead Slimv.REPL.clj nnoremap <buffer> <localleader>R :emenu REPL.<Tab>
+
+    " Fix the eval mapping.
+    au FileType clojure nmap <buffer> \ee \ed
+
+    " Indent top-level form.
+    au FileType clojure nmap <buffer> <localleader>= v((((((((((((=%
+
+    " Use a swank command that works, and doesn't require new app windows.
+    au FileType clojure let g:slimv_swank_cmd='!dtach -n /tmp/dtach-swank.sock -r winch lein swank'
+augroup END
+" }}}
+" }}}
+" Vim filetype {{{
+augroup ft_vim
+    au!
+
+    au FileType vim setlocal foldmethod=marker
+    au FileType help setlocal textwidth=78
+    au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
+augroup END
+" }}}
+" Ruby {{{
+
+augroup ft_ruby
+    au!
+    au Filetype ruby setlocal foldmethod=syntax
+augroup END
+
+" }}}
+" Folding ------------------------------------------------------------------ {{{
+set foldlevelstart=0
+
+" Space to toggle folds.
+nnoremap <Space> za
+vnoremap <Space> za
+
+" Make zO recursively open whatever top level fold we're in, no matter where the
+" cursor happens to be.
+nnoremap zO zCzO
+
+" Use ,z to "focus" the current fold.
+nnoremap <leader>z zMzvzz
+
+function! MyFoldText() " {{{
+    let line = getline(v:foldstart)
+
+    let nucolwidth = &fdc + &number * &numberwidth
+    let windowwidth = winwidth(0) - nucolwidth - 3
+    let foldedlinecount = v:foldend - v:foldstart
+
+    " expand tabs into spaces
+    let onetab = strpart('          ', 0, &tabstop)
+    let line = substitute(line, '\t', onetab, 'g')
+
+    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+endfunction " }}}
+set foldtext=MyFoldText()
+
+" }}}
+" Vundle {{{
 " Vundle is different from the vim-update-bundles script, but does about the
 " same thing
+set rtp+=~/.vim/vundle.git/ 
 call vundle#rc()
-" Generally Useful:
+" Generally Useful:  {{{
 Bundle "https://github.com/scrooloose/nerdtree.git"
 " Need the L-9 plugin fro FuzzyFinder
 Bundle "https://github.com/vim-scripts/L9.git"
@@ -168,8 +282,9 @@ Bundle "VimClojure"
 Bundle "Solarized"
 Bundle "groovy.vim"
 Bundle "xml.vim"
+" }}}
 
-" Programming:
+" Programming: {{{
 Bundle "https://github.com/scrooloose/nerdcommenter.git"
 Bundle "https://github.com/tpope/vim-surround.git"
 Bundle "https://github.com/vim-scripts/Align.git"
@@ -182,15 +297,17 @@ Bundle "zoom.vim"
 Bundle "https://github.com/kchmck/vim-coffee-script.git"
 Bundle "https://github.com/pangloss/vim-javascript.git"
 Bundle "https://github.com/tpope/vim-unimpaired.git"
+" }}}
 
-" Ruby/Rails Programming:
+" Ruby/Rails/Web Dev Programming: {{{
 Bundle "https://github.com/tpope/vim-rails.git"
 Bundle "https://github.com/vim-ruby/vim-ruby.git"
 "Bundle "https://github.com/tpope/vim-rake.git"
 Bundle "https://github.com/tpope/vim-cucumber.git"
 "Bundle "https://github.com/hallison/vim-rdoc.git"
 
-" Web Dev
 Bundle "https://github.com/cakebaker/scss-syntax.vim.git"
+" }}}
+" }}}
 
 
