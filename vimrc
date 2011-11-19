@@ -3,11 +3,12 @@ filetype off
 set runtimepath^=~/.vim
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
+syntax on
 set nocompatible
 
 " Basic options ----------------------------------------------------------- {{{
-" General {{{
-set encoding=utf-8
+"   General {{{
+"set encoding=utf-8
 set modelines=0
 set autoindent
 set showmode
@@ -44,7 +45,7 @@ set autoread
 set title
 
 " }}}
-" Tabs, spaces, wrapping {{{
+"   Tabs, spaces, wrapping {{{
 
 set tabstop=4
 set shiftwidth=4
@@ -58,34 +59,34 @@ set formatoptions=qrn1
 set colorcolumn=+1
 
 " }}}
-" Leader {{{
+"   Leader {{{
 
 let mapleader = ","
 let maplocalleader = "\\"
 
 " }}}
-" Environments (GUI/Console ------------------------------------------------ {{{
+"   Environments (GUI/Console ------------------------------------------------ {{{
 if has("gui_running")
   set background=light
    "colorscheme solarized " A little too bright for me on Windows
   colorscheme zenburn
   " colorscheme Tomorrow-Night
   set guioptions=egmrt
-  " set guioptions-=T " Turn off Toolbar http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
+  set guioptions-=T " Turn off Toolbar http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
     " Remove all the UI cruft
-    set go-=T
-    set go-=l
-    set go-=L
-    set go-=r
-    set go-=R
+    "set go-=T
+    "set go-=l
+    "set go-=L
+    "set go-=r
+    "set go-=R
   
   if has("gui_gtk2")
     set guifont=Inconsolata\ 12
   elseif has("gui_win32")
     set guifont=Consolas:h11
     source $VIMRUNTIME/mswin.vim
-    " colorscheme Tomorrow-Night
-    colorscheme solarized
+    colorscheme Tomorrow-Night
+    " colorscheme solarized
     set background=dark
     winp 0 0
     win 300 300 " It'll be too large but just maximize enough
@@ -93,6 +94,14 @@ if has("gui_running")
 else
   colorscheme Tomorrow-Night
 endif
+" }}}
+"       Line bubbling {{{
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble multiple lines
+vmap <C-Down> ]egv
+vmap <C-Up> [egv
 " }}}
 
 nnoremap <silent> <Leader>r :set relativenumber<CR> " , r to use relative numbers
@@ -102,7 +111,6 @@ set vb t_vb=
 set ruler
 set nobackup
 set writebackup
-
 
 
 set scrolloff=3
@@ -131,14 +139,6 @@ nnoremap <leader>w <C-w>v<C-w>l  " Vertical split
 nnoremap <leader>ff :FufFile<cr>
 
 
-" Line bubbling {{{
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-" Bubble multiple lines
-vmap <C-Down> ]egv
-vmap <C-Up> [egv
-" }}}
 " }}}
 " Searching and movement -------------------------------------------------- {{{
 
@@ -236,7 +236,7 @@ set wildignore+=*.DS_Store                       " OSX bullshit
 
 " Clojure/Leiningen
 set wildignore+=classes
-set wildignore+=lib
+"set wildignore+=lib
 
 " }}}
 " Folding ----------------------------------------------------------------- {{{
@@ -271,7 +271,7 @@ endfunction " }}}
 set foldtext=MyFoldText()
 
 " }}}
-" Plugin and Filetype Settings --------------------------------------------------------- {{{
+" Plugin and Filetype Settings -------------------------------------------- {{{
 "   Clojure {{{
 
 " VimClojure {{{
@@ -323,7 +323,7 @@ inoremap <F2> <esc>:NERDTreeToggle<cr>
 au Filetype nerdtree setlocal nolist
 
 let NERDTreeHighlightCursorline=1
-let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$', 'whoosh_index', 'xapian_index', '.*.pid', 'monitor.py', '.*-fixtures-.*.json', '.*\.o$', 'db.db']
+"let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$', 'whoosh_index', 'xapian_index', '.*.pid', 'monitor.py', '.*-fixtures-.*.json', '.*\.o$', 'db.db']
 
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
@@ -449,3 +449,4 @@ endfunction
 " }}}
 
 
+syntax on
