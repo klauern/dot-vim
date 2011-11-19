@@ -6,6 +6,7 @@ filetype plugin indent on
 set nocompatible
 
 " Basic options ----------------------------------------------------------- {{{
+" General {{{
 set encoding=utf-8
 set modelines=0
 set autoindent
@@ -13,7 +14,7 @@ set showmode
 set showcmd
 set hidden
 set visualbell
-set cursorline
+"set cursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start
@@ -21,6 +22,7 @@ set nonumber
 set norelativenumber
 set laststatus=2
 set history=1000
+set undolevels=1000
 " set undofile
 set undoreload=10000
 set cpoptions+=J
@@ -41,23 +43,28 @@ set shiftround
 set autoread
 set title
 
+" }}}
 " Tabs, spaces, wrapping {{{
 
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set autoindent
 set expandtab
+set smarttab
 set wrap
 set textwidth=80
 set formatoptions=qrn1
 set colorcolumn=+1
 
 " }}}
+" Leader {{{
 
-"if has('relativenumber')
-"  set relativenumber
-"endif
+let mapleader = ","
+let maplocalleader = "\\"
 
+" }}}
+" Environments (GUI/Console ------------------------------------------------ {{{
 if has("gui_running")
   set background=light
    "colorscheme solarized " A little too bright for me on Windows
@@ -65,122 +72,154 @@ if has("gui_running")
   " colorscheme Tomorrow-Night
   set guioptions=egmrt
   " set guioptions-=T " Turn off Toolbar http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
+    " Remove all the UI cruft
+    set go-=T
+    set go-=l
+    set go-=L
+    set go-=r
+    set go-=R
+  
   if has("gui_gtk2")
     set guifont=Inconsolata\ 12
   elseif has("gui_win32")
     set guifont=Consolas:h11
     source $VIMRUNTIME/mswin.vim
-    colorscheme Tomorrow-Night
+    " colorscheme Tomorrow-Night
+    colorscheme solarized
+    set background=dark
     winp 0 0
     win 300 300 " It'll be too large but just maximize enough
   endif
 else
   colorscheme Tomorrow-Night
 endif
+" }}}
 
-"set copyindent
-"set smartindent
+nnoremap <silent> <Leader>r :set relativenumber<CR> " , r to use relative numbers
+nnoremap <silent> <Leader>n :set number<CR>         " , n to use regular line numbers
 
-"syntax on
-"filetype on
-"filetype indent on
-
-
-
-filetype plugin indent on
-set hlsearch
-set softtabstop=2
-set smarttab
-set shiftwidth=2
-set autoindent
-set expandtab
 set vb t_vb=
 set ruler
-set history=1000
-set undolevels=1000
 set nobackup
 set writebackup
 
-set incsearch  " jumps to search word as you type (annoying but excellent)
 
-" create a shortcut such that Ctrl+n is equivalent to :NERDTreeToggle
-nmap <silent> <c-n> :NERDTreeToggle<CR>
 
-" from
-" http://stevelosh.com/blog/2010/09/coming-home-to-vim/#important-vimrc-lines
 set scrolloff=3
 "set undofile
 
+" can't do this unless I figure out a windows way of doing it
 " Backup directories
 " set undodir=~/.vim/tmp/undo//     " undo files
 " set backupdir=~/.vim/tmp/backup// " backups
 " set directory=~/.vim/tmp/swap//   " swap files
 " set backup                        " enable backups
 
-" comma better than \
-let mapleader = ","
-
-nnoremap <silent> <Leader>r :set relativenumber<CR> " backslash r to use relative numbers
-nnoremap <silent> <Leader>n :set number<CR>         " backslash n to use regular line numbers
 
 " nnoremap <silent> = :ZoomReset<CR>
 
 " Cursor Color highlight
-:hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-:hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+":hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 :nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
-" Switch syntax highlighting on, when the terminal has colors
-" " Also switch on highlighting the last used search pattern.
-"if &t_Co > 2 || has("gui_running")
-"	syntax on
-"	set hlsearch
-"	set guifont=Consolas:h10
-"endi
-
 set backspace=indent,eol,start " make backspace a more flexible
-" Ruby {
-" ruby standard 2 spaces, always
-au BufRead,BufNewFile *.rb,*.rhtml set shiftwidth=2 
-au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2 
-" }
-
-nnoremap / /\v
-vnoremap / /\v
-set ignorecase
-set smartcase
-set gdefault
-set incsearch
-set showmatch
-set hlsearch
-nnoremap <leader><space> :let @/=''<cr>
-nnoremap <tab> %
-vnoremap <tab> %
-
-set wrap
-set textwidth=79
-set formatoptions=qrn1
-if has("colorcolumn")
-  set colorcolumn=85
-endif
-
-set list
-set listchars=tab:▸\ ,eol:¬
-
 au FocusLost * :wa " save when tab is out of focus
-
 
 " Leader Key customizations
 nnoremap <leader>w <C-w>v<C-w>l  " Vertical split
 nnoremap <leader>ff :FufFile<cr>
 
 
+" Line bubbling {{{
 " Bubble single lines
 nmap <C-Up> [e
 nmap <C-Down> ]e
 " Bubble multiple lines
-vmap <C-Up> [egv
 vmap <C-Down> ]egv
+vmap <C-Up> [egv
+" }}}
+" }}}
+" Searching and movement -------------------------------------------------- {{{
+
+" Use sane regexes.
+nnoremap / /\v
+vnoremap / /\v
+
+set ignorecase
+set smartcase
+set incsearch  " jumps to search word as you type (annoying but excellent)
+set showmatch
+set hlsearch
+set gdefault
+
+"set scrolloff=3
+"set sidescroll=1
+"set sidescrolloff=10
+
+set virtualedit+=block
+
+noremap <leader><space> :noh<cr>:call clearmatches()<cr>
+
+" Made D behave
+nnoremap D d$
+
+" Keep search matches in the middle of the window and pulse the line when moving
+" to them.
+nnoremap n nzzzv:call PulseCursorLine()<cr>
+nnoremap N Nzzzv:call PulseCursorLine()<cr>
+
+" Don't move on *
+nnoremap * *<c-o>
+
+" Easier to type, and I never use the default behavior.
+noremap H ^
+noremap L g_
+
+" Error navigation {{{
+"
+"             Location List     QuickFix Window
+"            (e.g. Syntastic)     (e.g. Ack)
+"            ----------------------------------
+" Next      |     M-k               M-Down     |
+" Previous  |     M-l                M-Up      |
+"            ----------------------------------
+"
+nnoremap ˚ :lnext<cr>zvzz
+nnoremap ¬ :lprevious<cr>zvzz
+inoremap ˚ <esc>:lnext<cr>zvzz
+inoremap ¬ <esc>:lprevious<cr>zvzz
+nnoremap <m-Down> :cnext<cr>zvzz
+nnoremap <m-Up> :cprevious<cr>zvzz
+" }}}
+
+" Directional Keys {{{
+
+" It's 2011.
+noremap j gj
+noremap k gk
+
+" Easy buffer navigation
+noremap <C-h>  <C-w>h
+noremap <C-j>  <C-w>j
+noremap <C-k>  <C-w>k
+noremap <C-l>  <C-w>l
+noremap <leader>v <C-w>v
+
+" }}}
+
+" Visual Mode */# from Scrooloose {{{
+function! s:VSetSearch()
+  let temp = @@
+  norm! gvy
+  let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+  let @@ = temp
+endfunction
+
+vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><c-o>
+vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><c-o>
+" }}}
+
 " }}}
 " Wildmenu completion {{{
 
@@ -200,7 +239,49 @@ set wildignore+=classes
 set wildignore+=lib
 
 " }}}
-" Clojure {{{
+" Vim filetype {{{
+augroup ft_vim
+    au!
+
+    au FileType vim setlocal foldmethod=marker
+    au FileType help setlocal textwidth=78
+    au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
+augroup END
+" }}}
+" Folding ----------------------------------------------------------------- {{{
+set foldlevelstart=0
+
+" Space to toggle folds.
+nnoremap <Space> za
+vnoremap <Space> za
+
+" Make zO recursively open whatever top level fold we're in, no matter where the
+" cursor happens to be.
+nnoremap zO zCzO
+
+" Use ,z to "focus" the current fold.
+nnoremap <leader>z zMzvzz
+
+function! MyFoldText() " {{{
+    let line = getline(v:foldstart)
+
+    let nucolwidth = &fdc + &number * &numberwidth
+    let windowwidth = winwidth(0) - nucolwidth - 3
+    let foldedlinecount = v:foldend - v:foldstart
+
+    " expand tabs into spaces
+    let onetab = strpart('          ', 0, &tabstop)
+    let line = substitute(line, '\t', onetab, 'g')
+
+    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+endfunction " }}}
+set foldtext=MyFoldText()
+
+" }}}
+" Plugin Settings --------------------------------------------------------- {{{
+"   Clojure {{{
 
 " VimClojure {{{
 " To run, make sure you follow some instructions here: https://bitbucket.org/kotarak/vimclojure
@@ -242,16 +323,26 @@ augroup ft_clojure
 augroup END
 " }}}
 " }}}
-" Vim filetype {{{
-augroup ft_vim
-    au!
+"   NERDTree {{{
+" create a shortcut such that Ctrl+n is equivalent to :NERDTreeToggle
+nmap <silent> <c-n> :NERDTreeToggle<CR>
+noremap  <F2> :NERDTreeToggle<cr>
+inoremap <F2> <esc>:NERDTreeToggle<cr>
 
-    au FileType vim setlocal foldmethod=marker
-    au FileType help setlocal textwidth=78
-    au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
-augroup END
-" }}}
-" Ruby {{{
+au Filetype nerdtree setlocal nolist
+
+let NERDTreeHighlightCursorline=1
+let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$', 'whoosh_index', 'xapian_index', '.*.pid', 'monitor.py', '.*-fixtures-.*.json', '.*\.o$', 'db.db']
+
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+"   }}}
+"   Ruby {{{
+
+" ruby standard 2 spaces, always
+au BufRead,BufNewFile *.rb,*.rhtml set shiftwidth=2 
+au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2 
 
 augroup ft_ruby
     au!
@@ -259,44 +350,12 @@ augroup ft_ruby
 augroup END
 
 " }}}
-" Folding ------------------------------------------------------------------ {{{
-set foldlevelstart=0
-
-" Space to toggle folds.
-nnoremap <Space> za
-vnoremap <Space> za
-
-" Make zO recursively open whatever top level fold we're in, no matter where the
-" cursor happens to be.
-nnoremap zO zCzO
-
-" Use ,z to "focus" the current fold.
-nnoremap <leader>z zMzvzz
-
-function! MyFoldText() " {{{
-    let line = getline(v:foldstart)
-
-    let nucolwidth = &fdc + &number * &numberwidth
-    let windowwidth = winwidth(0) - nucolwidth - 3
-    let foldedlinecount = v:foldend - v:foldstart
-
-    " expand tabs into spaces
-    let onetab = strpart('          ', 0, &tabstop)
-    let line = substitute(line, '\t', onetab, 'g')
-
-    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
-    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
-endfunction " }}}
-set foldtext=MyFoldText()
-
-" }}}
-" Vundle {{{
-" Vundle is different from the vim-update-bundles script, but does about the
-" same thing
+"   Vundle {{{
+"       Setup: {{{
 set rtp+=~/.vim/vundle.git/ 
 call vundle#rc()
-" Generally Useful:  {{{
+"       }}}
+"       Generally Useful:  {{{
 Bundle "https://github.com/scrooloose/nerdtree.git"
 " Need the L-9 plugin fro FuzzyFinder
 Bundle "https://github.com/vim-scripts/L9.git"
@@ -312,8 +371,7 @@ Bundle "Solarized"
 Bundle "groovy.vim"
 Bundle "xml.vim"
 " }}}
-
-" Programming: {{{
+"       Programming: {{{
 Bundle "https://github.com/scrooloose/nerdcommenter.git"
 Bundle "https://github.com/tpope/vim-surround.git"
 Bundle "https://github.com/vim-scripts/Align.git"
@@ -327,8 +385,7 @@ Bundle "https://github.com/kchmck/vim-coffee-script.git"
 Bundle "https://github.com/pangloss/vim-javascript.git"
 Bundle "https://github.com/tpope/vim-unimpaired.git"
 " }}}
-
-" Ruby/Rails/Web Dev Programming: {{{
+"       Ruby/Rails/Web Dev Programming: {{{
 Bundle "https://github.com/tpope/vim-rails.git"
 Bundle "https://github.com/vim-ruby/vim-ruby.git"
 "Bundle "https://github.com/tpope/vim-rake.git"
@@ -337,6 +394,58 @@ Bundle "https://github.com/tpope/vim-cucumber.git"
 
 Bundle "https://github.com/cakebaker/scss-syntax.vim.git"
 " }}}
+"   }}}
+" }}}
+" Pulse ------------------------------------------------------------------- {{{
+
+function! PulseCursorLine()
+    let current_window = winnr()
+
+    windo set nocursorline
+    execute current_window . 'wincmd w'
+
+    setlocal cursorline
+
+    redir => old_hi
+        silent execute 'hi CursorLine'
+    redir END
+    let old_hi = split(old_hi, '\n')[0]
+    let old_hi = substitute(old_hi, 'xxx', '', '')
+
+    hi CursorLine guibg=#2a2a2a ctermbg=233
+    redraw
+    sleep 20m
+
+    hi CursorLine guibg=#333333 ctermbg=235
+    redraw
+    sleep 20m
+
+    hi CursorLine guibg=#3a3a3a ctermbg=237
+    redraw
+    sleep 20m
+
+    hi CursorLine guibg=#444444 ctermbg=239
+    redraw
+    sleep 20m
+
+    hi CursorLine guibg=#3a3a3a ctermbg=237
+    redraw
+    sleep 20m
+
+    hi CursorLine guibg=#333333 ctermbg=235
+    redraw
+    sleep 20m
+
+    hi CursorLine guibg=#2a2a2a ctermbg=233
+    redraw
+    sleep 20m
+
+    execute 'hi ' . old_hi
+
+    windo set cursorline
+    execute current_window . 'wincmd w'
+endfunction
+
 " }}}
 
 
