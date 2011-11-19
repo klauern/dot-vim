@@ -8,7 +8,7 @@ set nocompatible
 
 " Basic options ----------------------------------------------------------- {{{
 "   General {{{
-"set encoding=utf-8
+set encoding=utf-8
 set modelines=0
 set autoindent
 set showmode
@@ -28,7 +28,7 @@ set undolevels=1000
 set undoreload=10000
 set cpoptions+=J
 set list
-set listchars=tab:â–¸\ ,eol:Â¬,extends:â¯,precedes:â®
+set listchars=tab:¿\ ,eol:¬,extends:¿,precedes:¿
 set shell=/bin/bash
 set lazyredraw
 set matchtime=3
@@ -268,7 +268,30 @@ function! MyFoldText() " {{{
     let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
     return line . 'â€¦' . repeat(" ",fillcharcount) . foldedlinecount . 'â€¦' . ' '
 endfunction " }}}
-set foldtext=MyFoldText()
+
+fu! CustomFoldText()
+    "get first non-blank line
+    let fs = v:foldstart
+    while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
+    endwhile
+    if fs > v:foldend
+        let line = getline(v:foldstart)
+    else
+        let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
+    endif
+
+    let w = winwidth(0) - &foldcolumn - (&number ? 8 : 0)
+    let foldSize = 1 + v:foldend - v:foldstart
+    let foldSizeStr = " " . foldSize . " lines "
+    let foldLevelStr = repeat("+--", v:foldlevel)
+    let lineCount = line("$")
+    let foldPercentage = printf("[%.1f", (foldSize*1.0)/lineCount*100) . "%] "
+    let expansionString = repeat(".", w - strwidth(foldSizeStr.line.foldLevelStr.foldPercentage))
+    return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
+endf
+
+"set foldtext=MyFoldText()
+set foldtext=CustomFoldText()
 
 " }}}
 " Plugin and Filetype Settings -------------------------------------------- {{{
@@ -286,7 +309,6 @@ let g:vimclojure#DynamicHighlighting = 1
 let g:slimv_leader = '\'
 let g:slimv_keybindings = 2
 " }}}
-
 " filetype clojure {{{
 augroup ft_clojure
     au!
@@ -363,6 +385,7 @@ Bundle "https://github.com/vim-scripts/FuzzyFinder.git"
 " Colorscheme that isn't supposed to suck
 Bundle "https://github.com/vim-scripts/Zenburn.git"
 Bundle "https://github.com/altercation/vim-colors-solarized.git"
+Bundle "https://github.com/ChrisKempson/Vim-Tomorrow-Theme.git"
 
 Bundle "Command-T"
 Bundle "Tabular"
@@ -447,6 +470,3 @@ function! PulseCursorLine()
 endfunction
 
 " }}}
-
-
-syntax on
