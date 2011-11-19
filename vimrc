@@ -29,7 +29,6 @@ set undoreload=10000
 set cpoptions+=J
 set list
 set listchars=tab:¿\ ,eol:¬,extends:¿,precedes:¿
-set shell=/bin/bash
 set lazyredraw
 set matchtime=3
 set showbreak=â†ª
@@ -370,7 +369,7 @@ augroup END
 " }}}
 "   Vundle {{{
 "       Setup: {{{
-set rtp+=~/.vim/vundle.git/ 
+set rtp+=~/.vim/bundle/vundle/ 
 call vundle#rc()
 "       }}}
 "       Generally Useful:  {{{
@@ -398,7 +397,7 @@ Bundle "https://github.com/vim-scripts/Align.git"
 Bundle "https://github.com/tpope/vim-fugitive.git"
 Bundle "https://github.com/vim-scripts/jQuery.git"
 Bundle "https://github.com/tpope/vim-git.git"
-Bundle "Markdown"
+"Bundle "Markdown"
 Bundle "zoom.vim"
 Bundle "https://github.com/kchmck/vim-coffee-script.git"
 Bundle "https://github.com/pangloss/vim-javascript.git"
@@ -412,6 +411,7 @@ Bundle "https://github.com/tpope/vim-cucumber.git"
 "Bundle "https://github.com/hallison/vim-rdoc.git"
 
 Bundle "https://github.com/cakebaker/scss-syntax.vim.git"
+Bundle "https://github.com/plasticboy/vim-markdown.git"
 " }}}
 "   }}}
 " }}}
