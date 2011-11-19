@@ -46,7 +46,6 @@ set title
 
 " }}}
 "   Tabs, spaces, wrapping {{{
-
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -57,15 +56,12 @@ set wrap
 set textwidth=80
 set formatoptions=qrn1
 set colorcolumn=+1
-
 " }}}
 "   Leader {{{
-
 let mapleader = ","
 let maplocalleader = "\\"
-
 " }}}
-"   Environments (GUI/Console ------------------------------------------------ {{{
+"   Environments (GUI/Console {{{
 if has("gui_running")
   set background=light
    "colorscheme solarized " A little too bright for me on Windows
@@ -95,7 +91,7 @@ else
   colorscheme Tomorrow-Night
 endif
 " }}}
-"       Line bubbling {{{
+"   Line bubbling {{{
 " Bubble single lines
 nmap <C-Up> [e
 nmap <C-Down> ]e
@@ -103,7 +99,25 @@ nmap <C-Down> ]e
 vmap <C-Down> ]egv
 vmap <C-Up> [egv
 " }}}
+"   Wildmenu completion {{{
 
+set wildmenu
+set wildmode=list:longest
+
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX bullshit
+
+" Clojure/Leiningen
+set wildignore+=classes
+"set wildignore+=lib
+
+" }}}
+"   Everything Else {{{
 nnoremap <silent> <Leader>r :set relativenumber<CR> " , r to use relative numbers
 nnoremap <silent> <Leader>n :set number<CR>         " , n to use regular line numbers
 
@@ -138,7 +152,7 @@ au FocusLost * :wa " save when tab is out of focus
 nnoremap <leader>w <C-w>v<C-w>l  " Vertical split
 nnoremap <leader>ff :FufFile<cr>
 
-
+" }}}
 " }}}
 " Searching and movement -------------------------------------------------- {{{
 
@@ -219,24 +233,6 @@ endfunction
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><c-o>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><c-o>
 " }}}
-
-" }}}
-" Wildmenu completion {{{
-
-set wildmenu
-set wildmode=list:longest
-
-set wildignore+=.hg,.git,.svn                    " Version control
-set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
-set wildignore+=*.spl                            " compiled spelling word lists
-set wildignore+=*.sw?                            " Vim swap files
-set wildignore+=*.DS_Store                       " OSX bullshit
-
-" Clojure/Leiningen
-set wildignore+=classes
-"set wildignore+=lib
 
 " }}}
 " Folding ----------------------------------------------------------------- {{{
@@ -420,7 +416,6 @@ Bundle "https://github.com/cakebaker/scss-syntax.vim.git"
 "   }}}
 " }}}
 " Pulse ------------------------------------------------------------------- {{{
-
 function! PulseCursorLine()
     let current_window = winnr()
 
@@ -468,10 +463,8 @@ function! PulseCursorLine()
     windo set cursorline
     execute current_window . 'wincmd w'
 endfunction
-
 " }}}
 " Automagic Clojure folding on defn's and defmacro's ---------------------- {{{
-"
 function GetClojureFold()
       if getline(v:lnum) =~ '^\s*(defn.*\s'
             return ">1"
