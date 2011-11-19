@@ -239,15 +239,6 @@ set wildignore+=classes
 set wildignore+=lib
 
 " }}}
-" Vim filetype {{{
-augroup ft_vim
-    au!
-
-    au FileType vim setlocal foldmethod=marker
-    au FileType help setlocal textwidth=78
-    au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
-augroup END
-" }}}
 " Folding ----------------------------------------------------------------- {{{
 set foldlevelstart=0
 
@@ -280,7 +271,7 @@ endfunction " }}}
 set foldtext=MyFoldText()
 
 " }}}
-" Plugin Settings --------------------------------------------------------- {{{
+" Plugin and Filetype Settings --------------------------------------------------------- {{{
 "   Clojure {{{
 
 " VimClojure {{{
@@ -349,6 +340,15 @@ augroup ft_ruby
     au Filetype ruby setlocal foldmethod=syntax
 augroup END
 
+" }}}
+"   Vim {{{
+augroup ft_vim
+    au!
+
+    au FileType vim setlocal foldmethod=marker
+    au FileType help setlocal textwidth=78
+    au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
+augroup END
 " }}}
 "   Vundle {{{
 "       Setup: {{{
