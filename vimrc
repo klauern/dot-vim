@@ -390,6 +390,8 @@ Bundle "VimClojure"
 Bundle "Solarized"
 Bundle "groovy.vim"
 Bundle "xml.vim"
+" GitHub Gist support
+Bundle "mattn/gist-vim" 
 " }}}
 "       Programming: {{{
 Bundle "https://github.com/scrooloose/nerdcommenter.git"
