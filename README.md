@@ -9,3 +9,12 @@ of small comments in your .vimrc file that will automatically update and place i
 for these bundles all the time (Thank God.  Why waste the commits and space on that, especially if you don't control it).
 
 It's pretty easy to use, so take a look at it and how you might use it.
+
+Config
+------
+
+Mostly for me, but if you need to use this from a brand new installation, be sure to clone vundle:
+
+   git clone https://github.com/gmarik/vundle.git bundle/vundle
+
+Where `bundle/vundle` is in your `.vim/` directory.
