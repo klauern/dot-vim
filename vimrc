@@ -85,6 +85,7 @@ if has("gui_running")
     set background=dark
     winp 0 0
     win 300 300 " It'll be too large but just maximize enough
+    au GUIEnter * simalt ~x
   endif
 else
   colorscheme Tomorrow-Night
@@ -137,7 +138,7 @@ set scrolloff=3
 " set backup                        " enable backups
 
 
-" nnoremap <silent> = :ZoomReset<CR>
+nnoremap <silent> <Leader>= :ZoomReset<CR>
 
 " Cursor Color highlight
 ":hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
