@@ -403,6 +403,7 @@ Bundle "https://github.com/ChrisKempson/Vim-Tomorrow-Theme.git"
 Bundle "jceb/vim-orgmode"
 Bundle "tpope/vim-speeddating"
 Bundle "gmarick/vundle"
+Bundle "https://github.com/Lokaltog/vim-powerline"
 
 Bundle "Command-T"
 Bundle "Tabular"
