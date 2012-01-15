@@ -109,7 +109,7 @@ vmap <C-Up> [egv
 set wildmenu
 set wildmode=list:longest
 
-set wildignore+=.hg,.git,.svn                    " Version control
+"set wildignore+=.hg,.git,.svn                    " Version control
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
 set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
@@ -156,6 +156,7 @@ au FocusLost * :wa " save when tab is out of focus
 " Leader Key customizations
 nnoremap <leader>w <C-w>v<C-w>l  " Vertical split
 nnoremap <leader>ff :FufFile<cr>
+nnoremap <leader>fb :FufBuffer<cr>
 
 " }}}
 " }}}
