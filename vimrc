@@ -90,6 +90,11 @@ if has("gui_running")
 else
   colorscheme Tomorrow-Night
 endif
+if has("win32") || has("win64")
+    " We want to use Windows Powershell in windows
+    set shell=powershell
+    set shellcmdflag=-command
+endif
 " }}}
 "   Line bubbling {{{
 " Bubble single lines
