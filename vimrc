@@ -364,6 +364,19 @@ augroup ft_ruby
 augroup END
 
 " }}}
+"   Java {{{
+
+augroup ft_java
+    au!
+
+    au FileType java setlocal foldmethod=marker
+    au FileType java setlocal foldmarker={,}
+    au BufRead,BufNewFile *.java set shiftwidth=4
+    au BufRead,BufNewFile *.java set softtabstop=4
+augroup END
+
+" }}}
+"
 "   Vim {{{
 augroup ft_vim
     au!
