@@ -407,7 +407,6 @@ Bundle "https://github.com/Lokaltog/vim-powerline"
 
 Bundle "Command-T"
 Bundle "Tabular"
-Bundle "VimClojure"
 Bundle "Solarized"
 Bundle "groovy.vim"
 Bundle "xml.vim"
@@ -427,6 +426,8 @@ Bundle "zoom.vim"
 Bundle "https://github.com/kchmck/vim-coffee-script.git"
 Bundle "https://github.com/pangloss/vim-javascript.git"
 Bundle "https://github.com/tpope/vim-unimpaired.git"
+Bundle "VimClojure"
+Bundle "slimv.vim"
 " }}}
 "       Ruby/Rails/Web Dev Programming: {{{
 Bundle "https://github.com/tpope/vim-rails.git"
