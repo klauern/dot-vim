@@ -92,8 +92,10 @@ else
 endif
 if has("win32") || has("win64")
     " We want to use Windows Powershell in windows
-    set shell=powershell
-    set shellcmdflag=-command
+    set shell=cmd.exe
+    "set shellcmdflag=/c\ powershell.exe\ -NoLogo\ -NoProfile\ -NonInteractive\ -ExecutionPolicy\ RemoteSigned
+    set shellpipe=|
+    set shellredir=>
 endif
 " }}}
 "   Line bubbling {{{
@@ -111,7 +113,7 @@ set wildmode=list:longest
 
 "set wildignore+=.hg,.git,.svn                    " Version control
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+"set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
 set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
 set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
@@ -242,7 +244,7 @@ vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><c-o>
 
 " }}}
 " Folding ----------------------------------------------------------------- {{{
-set foldlevelstart=0
+set foldlevelstart=2
 
 " Space to toggle folds.
 nnoremap <Space> za
