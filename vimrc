@@ -111,9 +111,6 @@ vmap <C-Up> [egv
 set wildmenu
 set wildmode=list:longest
 
-"set wildignore+=.hg,.git,.svn                    " Version control
-set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
-"set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
 set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
 set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
@@ -121,7 +118,6 @@ set wildignore+=*.DS_Store                       " OSX bullshit
 
 " Clojure/Leiningen
 set wildignore+=classes
-"set wildignore+=lib
 
 " }}}
 "   Everything Else {{{
@@ -304,7 +300,7 @@ set foldtext=CustomFoldText()
 " To run, make sure you follow some instructions here: https://bitbucket.org/kotarak/vimclojure
 " you need to make a plugin dependency
 let vimclojure#WantNailgun = 0
-let vimclojure#NailgunClient = "C:\\mydocs\\Clojure\\vimclojure-nailgun-client\\ng.exe"
+let vimclojure#NailgunClient = "/Users/klauer/dev/clojure/vimclojure-nailgun-client/ng"
 let g:vimclojure#ParenRainbow = 1
 let g:vimclojure#DynamicHighlighting = 1
 " }}}
@@ -404,6 +400,7 @@ Bundle "https://github.com/altercation/vim-colors-solarized.git"
 Bundle "https://github.com/ChrisKempson/Vim-Tomorrow-Theme.git"
 Bundle "jceb/vim-orgmode"
 Bundle "tpope/vim-speeddating"
+Bundle "https://github.com/sukima/xmledit.git"
 Bundle "gmarick/vundle"
 Bundle "https://github.com/Lokaltog/vim-powerline"
 
@@ -414,6 +411,7 @@ Bundle "groovy.vim"
 Bundle "xml.vim"
 " GitHub Gist support
 Bundle "mattn/gist-vim" 
+Bundle "https://github.com/kien/ctrlp.vim.git"
 " }}}
 "       Programming: {{{
 Bundle "https://github.com/scrooloose/nerdcommenter.git"
@@ -424,7 +422,8 @@ Bundle "https://github.com/tpope/vim-fugitive.git"
 Bundle "https://github.com/vim-scripts/jQuery.git"
 Bundle "https://github.com/tpope/vim-git.git"
 "Bundle "Markdown"
-Bundle "zoom.vim"
+"Bundle "zoom.vim"
+Bundle "https://github.com/thinca/vim-fontzoom.git"
 Bundle "https://github.com/kchmck/vim-coffee-script.git"
 Bundle "https://github.com/pangloss/vim-javascript.git"
 Bundle "https://github.com/tpope/vim-unimpaired.git"
