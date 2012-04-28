@@ -89,8 +89,10 @@ else
 endif
 if has("win32") || has("win64")
     " We want to use Windows Powershell in windows
-    set shell=powershell
-    set shellcmdflag=-command
+    set shell=cmd.exe
+    "set shellcmdflag=/c\ powershell.exe\ -NoLogo\ -NoProfile\ -NonInteractive\ -ExecutionPolicy\ RemoteSigned
+    set shellpipe=|
+    set shellredir=>
 endif
 " }}}
 "   Line bubbling {{{
