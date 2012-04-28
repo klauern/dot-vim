@@ -63,9 +63,7 @@ let maplocalleader = "\\"
 "   Environments (GUI/Console {{{
 if has("gui_running")
   set background=light
-   "colorscheme solarized " A little too bright for me on Windows
   colorscheme zenburn
-  " colorscheme Tomorrow-Night
   set guioptions=egmrt
   set guioptions-=T " Turn off Toolbar http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
     " Remove all the UI cruft
@@ -81,7 +79,6 @@ if has("gui_running")
     set guifont=Consolas:h11
     source $VIMRUNTIME/mswin.vim
     colorscheme Tomorrow-Night
-    " colorscheme solarized
     set background=dark
     winp 0 0
     win 300 300 " It'll be too large but just maximize enough
@@ -356,7 +353,7 @@ au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2
 
 augroup ft_ruby
     au!
-    au Filetype ruby setlocal foldmethod=syntax
+    "au Filetype ruby setlocal foldmethod=syntax
 augroup END
 
 " }}}
@@ -394,7 +391,6 @@ Bundle "https://github.com/vim-scripts/L9.git"
 Bundle "https://github.com/vim-scripts/FuzzyFinder.git"
 " Colorscheme that isn't supposed to suck
 Bundle "https://github.com/vim-scripts/Zenburn.git"
-Bundle "https://github.com/altercation/vim-colors-solarized.git"
 Bundle "https://github.com/ChrisKempson/Vim-Tomorrow-Theme.git"
 Bundle "jceb/vim-orgmode"
 Bundle "tpope/vim-speeddating"
@@ -404,7 +400,7 @@ Bundle "https://github.com/Lokaltog/vim-powerline"
 
 Bundle "Command-T"
 Bundle "Tabular"
-Bundle "Solarized"
+Bundle "https://github.com/altercation/vim-colors-solarized.git"
 Bundle "groovy.vim"
 Bundle "xml.vim"
 " GitHub Gist support
