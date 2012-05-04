@@ -405,14 +405,14 @@ Bundle "https://github.com/sukima/xmledit.git"
 Bundle "gmarick/vundle"
 Bundle "https://github.com/Lokaltog/vim-powerline"
 
-Bundle "Command-T"
+"Bundle "Command-T"
+Bundle "https://github.com/kien/ctrlp.vim.git"
 Bundle "Tabular"
 Bundle "https://github.com/altercation/vim-colors-solarized.git"
 Bundle "groovy.vim"
 Bundle "xml.vim"
 " GitHub Gist support
 Bundle "mattn/gist-vim" 
-Bundle "https://github.com/kien/ctrlp.vim.git"
 " }}}
 "       Programming: {{{
 Bundle "https://github.com/scrooloose/nerdcommenter.git"
