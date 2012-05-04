@@ -43,6 +43,8 @@ set shiftround
 set autoread
 set title
 
+set tags+=gems.tags
+
 " }}}
 "   Tabs, spaces, wrapping {{{
 set tabstop=4
@@ -85,7 +87,10 @@ if has("gui_running")
     au GUIEnter * simalt ~x
   endif
 else
-  colorscheme Tomorrow-Night
+  let g:solarized_termcolors=256
+  set background=light
+  colorscheme solarized
+  "colorscheme Tomorrow-Night
 endif
 if has("win32") || has("win64")
     " We want to use Windows Powershell in windows
@@ -393,7 +398,7 @@ Bundle "https://github.com/vim-scripts/L9.git"
 Bundle "https://github.com/vim-scripts/FuzzyFinder.git"
 " Colorscheme that isn't supposed to suck
 Bundle "https://github.com/vim-scripts/Zenburn.git"
-Bundle "https://github.com/ChrisKempson/Vim-Tomorrow-Theme.git"
+Bundle "https://github.com/chriskempson/vim-tomorrow-theme.git"
 Bundle "jceb/vim-orgmode"
 Bundle "tpope/vim-speeddating"
 Bundle "https://github.com/sukima/xmledit.git"
