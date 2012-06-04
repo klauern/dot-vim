@@ -93,6 +93,7 @@ else
   "colorscheme Tomorrow-Night
 endif
 if has("win32") || has("win64")
+    colorscheme Tomorrow-Night
     " We want to use Windows Powershell in windows
     set shell=cmd.exe
     "set shellcmdflag=/c\ powershell.exe\ -NoLogo\ -NoProfile\ -NonInteractive\ -ExecutionPolicy\ RemoteSigned
