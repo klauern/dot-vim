@@ -339,6 +339,11 @@ augroup ft_clojure
     au FileType clojure let g:slimv_swank_cmd='!dtach -n /tmp/dtach-swank.sock -r winch lein swank'
 augroup END
 " }}}
+"       paredit {{{
+" when inside a (), <Enter> will open a newline.  Closing ) completes
+" form either way
+let g:paredit_electric_return = 1
+"       }}}
 " }}}
 "   NERDTree {{{
 " create a shortcut such that Ctrl+n is equivalent to :NERDTreeToggle
@@ -432,7 +437,7 @@ Bundle "https://github.com/thinca/vim-fontzoom.git"
 Bundle "https://github.com/kchmck/vim-coffee-script.git"
 Bundle "https://github.com/pangloss/vim-javascript.git"
 Bundle "https://github.com/tpope/vim-unimpaired.git"
-Bundle "VimClojure"
+Bundle "https://github.com/vim-scripts/VimClojure.git"
 Bundle "slimv.vim"
 Bundle "https://github.com/jnwhiteh/vim-golang.git"
 Bundle "https://github.com/vim-scripts/paredit.vim"
