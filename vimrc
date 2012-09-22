@@ -156,8 +156,10 @@ au FocusLost * :wa " save when tab is out of focus
 
 " Leader Key customizations
 nnoremap <leader>w <C-w>v<C-w>l  " Vertical split
-nnoremap <leader>ff :FufFile<cr>
-nnoremap <leader>fb :FufBuffer<cr>
+"nnoremap <leader>ff :FufFile<cr>
+"nnoremap <leader>fb :FufBuffer<cr>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " }}}
 " }}}
@@ -396,7 +398,8 @@ call vundle#rc()
 Bundle "https://github.com/scrooloose/nerdtree.git"
 " Need the L-9 plugin fro FuzzyFinder
 Bundle "https://github.com/vim-scripts/L9.git"
-Bundle "https://github.com/vim-scripts/FuzzyFinder.git"
+"Bundle "https://github.com/vim-scripts/FuzzyFinder.git"
+Bundle "https://github.com/kien/ctrlp.vim.git"
 " Colorscheme that isn't supposed to suck
 Bundle "https://github.com/vim-scripts/Zenburn.git"
 Bundle "https://github.com/chriskempson/vim-tomorrow-theme.git"
@@ -431,6 +434,8 @@ Bundle "https://github.com/pangloss/vim-javascript.git"
 Bundle "https://github.com/tpope/vim-unimpaired.git"
 Bundle "VimClojure"
 Bundle "slimv.vim"
+Bundle "https://github.com/jnwhiteh/vim-golang.git"
+Bundle "https://github.com/vim-scripts/paredit.vim"
 " }}}
 "       Ruby/Rails/Web Dev Programming: {{{
 Bundle "https://github.com/tpope/vim-rails.git"
