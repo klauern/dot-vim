@@ -66,6 +66,7 @@ let maplocalleader = "\\"
 if has("gui_running")
   set background=light
   colorscheme zenburn
+  set guifont=Source\ Code\ Pro:h14
   set guioptions=egmrt
   set guioptions-=T " Turn off Toolbar http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
     " Remove all the UI cruft
@@ -76,7 +77,8 @@ if has("gui_running")
     "set go-=R
   
   if has("gui_gtk2")
-    set guifont=Inconsolata\ 12
+    "set guifont=Inconsolata\ 12
+    set guifont="Source Code Pro"
   elseif has("gui_win32")
     set guifont=Consolas:h11
     source $VIMRUNTIME/mswin.vim
