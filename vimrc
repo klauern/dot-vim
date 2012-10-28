@@ -431,6 +431,8 @@ Bundle "groovy.vim"
 Bundle "xml.vim"
 " GitHub Gist support
 Bundle "mattn/gist-vim" 
+Bundle "Command-T"
+Bundle "zoom.vim"
 " }}}
 "       Programming: {{{
 Bundle "https://github.com/scrooloose/nerdcommenter.git"
@@ -460,6 +462,8 @@ Bundle "https://github.com/tpope/vim-cucumber.git"
 
 Bundle "https://github.com/cakebaker/scss-syntax.vim.git"
 Bundle "https://github.com/plasticboy/vim-markdown.git"
+
+Bundle "https://github.com/mattn/zencoding-vim.git"
 " }}}
 "   }}}
 " }}}
