@@ -66,6 +66,8 @@ let maplocalleader = "\\"
 if has("gui_running")
   set background=light
   colorscheme zenburn
+  " See Adobe blog on Source Code Pro:
+  " https://blogs.adobe.com/typblography/2012/09/source-code-pro.html
   set guifont=Source\ Code\ Pro:h14
   set guioptions=egmrt
   set guioptions-=T " Turn off Toolbar http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
@@ -78,6 +80,8 @@ if has("gui_running")
   
   if has("gui_gtk2")
     "set guifont=Inconsolata\ 12
+    " See blog post on the font
+    " https://blogs.adobe.com/typblography/2012/09/source-code-pro.html
     set guifont="Source Code Pro"
   elseif has("gui_win32")
     set guifont=Consolas:h11
