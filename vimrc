@@ -94,8 +94,11 @@ if has("gui_running")
   endif
 else
   let g:solarized_termcolors=256
-  set background=light
   colorscheme solarized
+  " for some reason, setting it dark then light again shows a different color
+  " scheme entirely than just setting it light to begin with...
+  set background=dark
+  set background=light
   "colorscheme Tomorrow-Night
 endif
 if has("win32") || has("win64")
