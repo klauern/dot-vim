@@ -313,10 +313,29 @@ set foldtext=CustomFoldText()
 "       VimClojure {{{
 " To run, make sure you follow some instructions here: https://bitbucket.org/kotarak/vimclojure
 " you need to make a plugin dependency
-let vimclojure#WantNailgun = 0
-let vimclojure#NailgunClient = "/Users/klauer/dev/clojure/vimclojure-nailgun-client/ng"
-let g:vimclojure#ParenRainbow = 1
-let g:vimclojure#DynamicHighlighting = 1
+" Automatically determine indenting using fuzzy matching. e.g. the a line starting "(with-"
+" will be indented two spaces.
+let vimclojure#FuzzyIndent=1
+
+" Highlight built-in functions from clojure.core and friends
+let vimclojure#HighlightBuiltins=1
+
+" Highlight functions from contrib
+let vimclojure#HighlightContrib=1
+
+" As new symbols are identified using VimClojure's dynamic features, automatically
+" highlight them.
+let vimclojure#DynamicHighlighting=1
+
+" Color parens so they're easier to match visually
+let vimclojure#ParenRainbow=1
+if has("macunix")
+    " Yes, I want nailgun support
+    let vimclojure#WantNailgun = 1
+
+    " Full path to the nailgun client
+    let vimclojure#NailgunClient = "/usr/local/bin/ng"
+endif
 " }}}
 "       SLIMV {{{
 let g:slimv_leader = '\'
