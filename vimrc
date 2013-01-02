@@ -108,6 +108,30 @@ if has("win32") || has("win64")
     "set shellcmdflag=/c\ powershell.exe\ -NoLogo\ -NoProfile\ -NonInteractive\ -ExecutionPolicy\ RemoteSigned
     set shellpipe=|
     set shellredir=>
+     "VimClojure things for my Win7 box:
+
+     "Automatically determine indenting using fuzzy matching. e.g. the a line starting "(with-"
+     "will be indented two spaces.
+    "let vimclojure#FuzzyIndent=1
+
+     "Highlight built-in functions from clojure.core and friends
+    "let vimclojure#HighlightBuiltins=1
+
+     "Highlight functions from contrib
+    "let vimclojure#HighlightContrib=1
+
+     "As new symbols are identified using VimClojure's dynamic features, automatically
+     "highlight them.
+    "let vimclojure#DynamicHighlighting=1
+
+     "Color parens so they're easier to match visually
+    "let vimclojure#ParenRainbow=1
+
+     "Yes, I want nailgun support
+    "let vimclojure#WantNailgun = 1
+
+     "Full path to the nailgun client
+    "let vimclojure#NailgunClient = "C:/Users/A03182/Clojure/vimclojure-nailgun-client/ng.exe"
 endif
 " }}}
 "   Line bubbling {{{
@@ -448,7 +472,10 @@ Bundle "https://github.com/thinca/vim-fontzoom.git"
 Bundle "https://github.com/kchmck/vim-coffee-script.git"
 Bundle "https://github.com/pangloss/vim-javascript.git"
 Bundle "https://github.com/tpope/vim-unimpaired.git"
-Bundle "https://github.com/vim-scripts/VimClojure.git"
+"Bundle "https://github.com/vim-scripts/VimClojure.git"
+Bundle "https://github.com/tpope/vim-foreplay.git"
+Bundle "https://github.com/guns/vim-clojure-static.git"
+Bundle "rainbow_parentheses.vim"
 Bundle "slimv.vim"
 Bundle "https://github.com/jnwhiteh/vim-golang.git"
 Bundle "https://github.com/vim-scripts/paredit.vim"
