@@ -476,6 +476,7 @@ Bundle "xml.vim"
 Bundle "mattn/gist-vim" 
 Bundle "Command-T"
 Bundle "zoom.vim"
+Bundle "https://github.com/Lokaltog/vim-easymotion.git"
 " }}}
 "       Programming: {{{
 Bundle "https://github.com/scrooloose/nerdcommenter.git"
