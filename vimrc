@@ -43,7 +43,7 @@ set shiftround
 set autoread
 set title
 
-set tags+=gems.tags,tags,./tags
+set tags+=tags;$HOME
 
 " }}}
 "   Tabs, spaces, wrapping {{{
