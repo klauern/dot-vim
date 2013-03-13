@@ -466,6 +466,8 @@ Bundle "https://github.com/sukima/xmledit.git"
 Bundle "gmarick/vundle"
 Bundle "https://github.com/Lokaltog/vim-powerline"
 
+" Tim Pope's Session management tool :Obsess (record session) and :Obsess! (delete)
+Bundle "https://github.com/tpope/vim-obsession.git"
 "Bundle "Command-T"
 Bundle "https://github.com/kien/ctrlp.vim.git"
 Bundle "Tabular"
