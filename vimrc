@@ -247,6 +247,38 @@ inoremap ˚ <esc>:lnext<cr>zvzz
 inoremap ¬ <esc>:lprevious<cr>zvzz
 nnoremap <m-Down> :cnext<cr>zvzz
 nnoremap <m-Up> :cprevious<cr>zvzz
+
+"Tagbar
+nmap <F8> :TagbarToggle<CR>
+" Tagbar for Go
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+    \ }
+
 " }}}
 
 " Directional Keys {{{
@@ -436,7 +468,6 @@ augroup ft_java
 augroup END
 
 " }}}
-"
 "   Vim {{{
 augroup ft_vim
     au!
