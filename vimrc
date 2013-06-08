@@ -535,6 +535,8 @@ Bundle "rainbow_parentheses.vim"
 Bundle "slimv.vim"
 Bundle "https://github.com/jnwhiteh/vim-golang.git"
 Bundle "https://github.com/vim-scripts/paredit.vim"
+" Go Programming
+Bundle "https://github.com/Blackrush/vim-gocode.git"
 " }}}
 "       Ruby/Rails/Web Dev Programming: {{{
 Bundle "https://github.com/tpope/vim-rails.git"
