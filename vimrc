@@ -93,13 +93,13 @@ if has("gui_running")
     au GUIEnter * simalt ~x
   endif
 else
+  set t_Co=256
   let g:solarized_termcolors=256
-  colorscheme solarized
+  set background=dark
+  "colorscheme solarized
   " for some reason, setting it dark then light again shows a different color
   " scheme entirely than just setting it light to begin with...
-  set background=dark
-  set background=light
-  "colorscheme Tomorrow-Night
+  colorscheme Tomorrow-Night
 endif
 if has("win32") || has("win64")
     colorscheme Tomorrow-Night
