@@ -163,9 +163,6 @@ set wildignore+=classes
 
 " }}}
 "   Everything Else {{{
-nnoremap <silent> <Leader>r :set relativenumber<CR> " , r to use relative numbers
-nnoremap <silent> <Leader>n :set number<CR>         " , n to use regular line numbers
-
 set vb t_vb=
 set ruler
 set nobackup
@@ -197,6 +194,13 @@ au FocusLost * :wa " save when tab is out of focus
 nnoremap <leader>w <C-w>v<C-w>l  " Vertical split
 "nnoremap <leader>ff :FufFile<cr>
 "nnoremap <leader>fb :FufBuffer<cr>
+nnoremap <silent> <Leader>r :call RelativeNumberToggle()<CR>
+nnoremap <silent> <Leader>n :call AbsoluteNumberToggle()<CR>
+
+"nnoremap <silent> <Leader>r :set relativenumber<CR> " , r to use relative numbers
+"nnoremap <silent> <Leader>n :set number<CR>         " , n to use regular line numbers
+
+
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
@@ -466,7 +470,6 @@ augroup END
 
 augroup ft_java
     au!
-
     au FileType java setlocal foldmethod=marker
     au FileType java setlocal foldmarker={,}
     au BufRead,BufNewFile *.java set shiftwidth=4
@@ -643,4 +646,24 @@ function TurnOnClojureFolding()
       setlocal foldexpr=GetClojureFold()
       setlocal foldmethod=expr
 endfunction
+" }}}
+" Relative and Absolute Line Number toggling {{{
+function! AbsoluteNumberToggle()
+    set norelativenumber
+    if(&number == 1)
+        set nonumber
+    else
+        set number
+    endif
+endfunc
+
+function! RelativeNumberToggle()
+    set nonumber
+    if(&relativenumber == 1)
+        set norelativenumber
+    else
+        set relativenumber
+    endif
+endfunc
+
 " }}}
