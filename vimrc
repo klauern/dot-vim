@@ -86,26 +86,20 @@ if has("gui_running")
   elseif has("gui_win32")
     set guifont=Consolas:h11
     source $VIMRUNTIME/mswin.vim
-    colorscheme Tomorrow-Night
-    set background=dark
+    set background=light
+    colorscheme zenburn
     winp 0 0
     win 300 300 " It'll be too large but just maximize enough
     au GUIEnter * simalt ~x
   endif
 else
-    set term=xterm
-    set t_Co=256
-    let &t_AB="\e[48;5;%dm"
-    let &t_AF="\e[38;5;%dm"
-    syntax on
-    colorscheme zenburn
-    set t_Co=256
-    let g:solarized_termcolors=256
-    set background=dark
-    "colorscheme solarized
-    " for some reason, setting it dark then light again shows a different color
-    " scheme entirely than just setting it light to begin with...
-    colorscheme Tomorrow-Night
+  set t_Co=256
+  let g:solarized_termtrans=1
+  let g:solarized_termcolors=256
+  " for some reason, setting it dark then light again shows a different color
+  " scheme entirely than just setting it light to begin with...
+  set background=dark
+  colorscheme solarized
 endif
 if has("win32") || has("win64")
     colorscheme Tomorrow-Night
@@ -181,6 +175,9 @@ set scrolloff=3
 
 
 nnoremap <silent> <Leader>= :ZoomReset<CR>
+
+" Ctrl-S to save
+inoremap <c-s> <Esc>:Update<CR>
 
 " Cursor Color highlight
 ":hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
@@ -407,6 +404,16 @@ endif
 let g:slimv_leader = '\'
 let g:slimv_keybindings = 2
 " }}}
+"       Rainbow Parentheses {{{
+"       Enable rainbow parentheses for all buffers
+"augroup rainbow_parentheses
+    "au!
+    "au VimEnter * RainbowParenthesesActivate
+    "au BufEnter * RainbowParenthesesLoadRound
+    "au BufEnter * RainbowParenthesesLoadSquare
+    "au BufEnter * RainbowParenthesesLoadBraces
+"augroup END
+"       }}}
 "       filetype clojure {{{
 augroup ft_clojure
     au!
@@ -498,6 +505,7 @@ Bundle "https://github.com/vim-scripts/L9.git"
 "Bundle "https://github.com/vim-scripts/FuzzyFinder.git"
 Bundle "https://github.com/kien/ctrlp.vim.git"
 " Colorscheme that isn't supposed to suck
+Bundle "twilight"
 Bundle "https://github.com/vim-scripts/Zenburn.git"
 Bundle "https://github.com/chriskempson/vim-tomorrow-theme.git"
 Bundle "jceb/vim-orgmode"
@@ -536,12 +544,12 @@ Bundle "https://github.com/thinca/vim-fontzoom.git"
 Bundle "https://github.com/kchmck/vim-coffee-script.git"
 Bundle "https://github.com/pangloss/vim-javascript.git"
 Bundle "https://github.com/tpope/vim-unimpaired.git"
-"Bundle "https://github.com/vim-scripts/VimClojure.git"
 Bundle "https://github.com/tpope/vim-fireplace.git"
 Bundle "https://github.com/tpope/vim-classpath.git"
 Bundle "https://github.com/guns/vim-clojure-static.git"
-Bundle "rainbow_parentheses.vim"
-Bundle "slimv.vim"
+
+Bundle "kien/rainbow_parentheses.vim"
+Bundle "kovisoft/slimv.vim"
 Bundle "https://github.com/jnwhiteh/vim-golang.git"
 Bundle "https://github.com/vim-scripts/paredit.vim"
 " Go Programming
