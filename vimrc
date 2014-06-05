@@ -503,7 +503,6 @@ Bundle "https://github.com/scrooloose/nerdtree.git"
 " Need the L-9 plugin fro FuzzyFinder
 Bundle "https://github.com/vim-scripts/L9.git"
 "Bundle "https://github.com/vim-scripts/FuzzyFinder.git"
-Bundle "https://github.com/kien/ctrlp.vim.git"
 " Colorscheme that isn't supposed to suck
 Bundle "twilight"
 Bundle "https://github.com/vim-scripts/Zenburn.git"
