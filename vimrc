@@ -1,8 +1,62 @@
+"   Vundle {{{
+"       Setup: {{{
+set nocompatible
 filetype off
-" The ^ is important, don't mess with it...
-"set runtimepath^=~/.vim
-call pathogen#runtime_append_all_bundles()
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim/ 
+call vundle#begin()
+"       }}}
+"       Generally Useful:  {{{
+Plugin 'gmarick/vundle.vim'
+Plugin 'https://github.com/scrooloose/nerdtree.git'
+Plugin 'https://github.com/kien/ctrlp.vim.git'
+Plugin 'twilight' " Colorscheme that isn't supposed to suck
+Plugin 'https://github.com/vim-scripts/Zenburn.git'
+Plugin 'https://github.com/chriskempson/vim-tomorrow-theme.git'
+Plugin 'tpope/vim-speeddating'
+Plugin 'https://github.com/sukima/xmledit.git'
+Plugin 'https://github.com/Lokaltog/vim-powerline'
+
+" Tim Pope's Session management tool :Obsess (record session) and :Obsess! (delete)
+Plugin 'https://github.com/tpope/vim-obsession.git'
+Plugin 'Tabular'
+Plugin 'https://github.com/altercation/vim-colors-solarized.git'
+Plugin 'xml.vim'
+Plugin 'Command-T'
+Plugin 'zoom.vim'
+Plugin 'https://github.com/Lokaltog/vim-easymotion.git'
+" }}}
+"       Programming: {{{
+Plugin 'https://github.com/scrooloose/syntastic.git'
+Plugin 'https://github.com/majutsushi/tagbar.git'
+Plugin 'https://github.com/scrooloose/nerdcommenter.git'
+Plugin 'https://github.com/tpope/vim-surround.git'
+Plugin 'https://github.com/vim-scripts/Align.git'
+Plugin 'https://github.com/tpope/vim-fugitive.git'
+Plugin 'https://github.com/vim-scripts/jQuery.git'
+Plugin 'https://github.com/tpope/vim-git.git'
+Plugin 'https://github.com/thinca/vim-fontzoom.git'
+Plugin 'https://github.com/kchmck/vim-coffee-script.git'
+Plugin 'https://github.com/pangloss/vim-javascript.git'
+Plugin 'https://github.com/tpope/vim-unimpaired.git'
+Plugin 'https://github.com/tpope/vim-fireplace.git'
+Plugin 'https://github.com/tpope/vim-classpath.git'
+Plugin 'https://github.com/guns/vim-clojure-static.git'
+
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'kovisoft/slimv.vim'
+Plugin 'https://github.com/vim-scripts/paredit.vim'
+" Go Programming
+Plugin 'https://github.com/jnwhiteh/vim-golang.git'
+Plugin 'https://github.com/Blackrush/vim-gocode.git'
+" }}}
+Plugin 'https://github.com/plasticboy/vim-markdown.git'
+call vundle#end()
 filetype plugin indent on
+" }}}
+"   }}}
+" call pathogen#runtime_append_all_bundles()
 syntax on
 set nocompatible
 
@@ -158,7 +212,7 @@ set wildignore+=classes
 "   Everything Else {{{
 set vb t_vb=
 set ruler
-set nobackup
+set backup
 set writebackup
 
 
@@ -170,8 +224,6 @@ set undofile
 set undodir=~/.vim/tmp/undo//     " undo files
 set backupdir=~/.vim/tmp/backup// " backups
 set directory=~/.vim/tmp/swap//   " swap files
-set backup                        " enable backups
-
 
 nnoremap <silent> <Leader>= :ZoomReset<CR>
 
@@ -447,7 +499,7 @@ let g:paredit_electric_return = 1
 " }}}
 "   NERDTree {{{
 " create a shortcut such that Ctrl+n is equivalent to :NERDTreeToggle
-nmap <silent> <c-n> :NERDTreeToggle<CR>
+nmap <silent> <c-n> :NERDTreeToggle<cr>
 noremap  <F2> :NERDTreeToggle<cr>
 inoremap <F2> <esc>:NERDTreeToggle<cr>
 
@@ -492,81 +544,6 @@ augroup ft_vim
     au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
 " }}}
-"   Vundle {{{
-"       Setup: {{{
-set rtp+=~/.vim/bundle/Vundle.vim/ 
-call vundle#begin()
-"       }}}
-"       Generally Useful:  {{{
-Plugin 'https://github.com/scrooloose/nerdtree.git'
-" Need the L-9 plugin fro FuzzyFinder
-Plugin 'https://github.com/vim-scripts/L9.git'
-"Plugin 'https://github.com/vim-scripts/FuzzyFinder.git'
-Plugin 'https://github.com/kien/ctrlp.vim.git'
-" Colorscheme that isn't supposed to suck
-Plugin 'twilight'
-Plugin 'https://github.com/vim-scripts/Zenburn.git'
-Plugin 'https://github.com/chriskempson/vim-tomorrow-theme.git'
-Plugin 'jceb/vim-orgmode'
-Plugin 'tpope/vim-speeddating'
-Plugin 'https://github.com/sukima/xmledit.git'
-Plugin 'gmarick/vundle.vim'
-Plugin 'https://github.com/Lokaltog/vim-powerline'
-
-" Tim Pope's Session management tool :Obsess (record session) and :Obsess! (delete)
-Plugin 'https://github.com/tpope/vim-obsession.git'
-"Plugin 'Command-T'
-Plugin 'Tabular'
-Plugin 'https://github.com/altercation/vim-colors-solarized.git'
-Plugin 'groovy.vim'
-Plugin 'xml.vim'
-" GitHub Gist support
-Plugin 'mattn/gist-vim' 
-Plugin 'Command-T'
-Plugin 'zoom.vim'
-Plugin 'https://github.com/Lokaltog/vim-easymotion.git'
-" }}}
-"       Programming: {{{
-Plugin 'https://github.com/scrooloose/syntastic.git'
-Plugin 'https://github.com/majutsushi/tagbar.git'
-Plugin 'https://github.com/scrooloose/nerdcommenter.git'
-Plugin 'https://github.com/tpope/vim-surround.git'
-Plugin 'https://github.com/vim-scripts/Align.git'
-"Plugin 'https://github.com/vim-scripts/taglist.vim' " Doesn't work for some reason.
-Plugin 'https://github.com/tpope/vim-fugitive.git'
-Plugin 'https://github.com/vim-scripts/jQuery.git'
-Plugin 'https://github.com/tpope/vim-git.git'
-"Plugin 'Markdown'
-"Plugin 'zoom.vim'
-Plugin 'https://github.com/thinca/vim-fontzoom.git'
-Plugin 'https://github.com/kchmck/vim-coffee-script.git'
-Plugin 'https://github.com/pangloss/vim-javascript.git'
-Plugin 'https://github.com/tpope/vim-unimpaired.git'
-Plugin 'https://github.com/tpope/vim-fireplace.git'
-Plugin 'https://github.com/tpope/vim-classpath.git'
-Plugin 'https://github.com/guns/vim-clojure-static.git'
-
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'kovisoft/slimv.vim'
-Plugin 'https://github.com/jnwhiteh/vim-golang.git'
-Plugin 'https://github.com/vim-scripts/paredit.vim'
-" Go Programming
-Plugin 'https://github.com/Blackrush/vim-gocode.git'
-" }}}
-"       Ruby/Rails/Web Dev Programming: {{{
-Plugin 'https://github.com/tpope/vim-rails.git'
-Plugin 'https://github.com/vim-ruby/vim-ruby.git'
-"Plugin 'https://github.com/tpope/vim-rake.git'
-Plugin 'https://github.com/tpope/vim-cucumber.git'
-"Plugin "https://github.com/hallison/vim-rdoc.git"
-
-Plugin 'https://github.com/cakebaker/scss-syntax.vim.git'
-Plugin 'https://github.com/plasticboy/vim-markdown.git'
-
-" Plugin 'https://github.com/mattn/zencoding-vim.git'
-call vundle#end()
-" }}}
-"   }}}
 " }}}
 " Pulse ------------------------------------------------------------------- {{{
 function! PulseCursorLine()
