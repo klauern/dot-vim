@@ -161,30 +161,6 @@ if has("win32") || has("win64")
     "set shellcmdflag=/c\ powershell.exe\ -NoLogo\ -NoProfile\ -NonInteractive\ -ExecutionPolicy\ RemoteSigned
     set shellpipe=|
     set shellredir=>
-     "VimClojure things for my Win7 box:
-
-     "Automatically determine indenting using fuzzy matching. e.g. the a line starting "(with-"
-     "will be indented two spaces.
-     "let vimclojure#FuzzyIndent=1
-
-     "Highlight built-in functions from clojure.core and friends
-    "let vimclojure#HighlightBuiltins=1
-
-     "Highlight functions from contrib
-    "let vimclojure#HighlightContrib=1
-
-     "As new symbols are identified using VimClojure's dynamic features, automatically
-     "highlight them.
-    "let vimclojure#DynamicHighlighting=1
-
-     "Color parens so they're easier to match visually
-    "let vimclojure#ParenRainbow=1
-
-     "Yes, I want nailgun support
-    "let vimclojure#WantNailgun = 1
-
-     "Full path to the nailgun client
-    "let vimclojure#NailgunClient = "C:/Users/A03182/Clojure/vimclojure-nailgun-client/ng.exe"
 endif
 " }}}
 "   Line bubbling {{{
@@ -218,12 +194,13 @@ set writebackup
 
 set scrolloff=3
 
+" TODO: Add settings for Windows support
 " can't do this unless I figure out a windows way of doing it
 " Backup directories
 set undofile
-set undodir=~/.vim/tmp/undo//     " undo files
-set backupdir=~/.vim/tmp/backup// " backups
-set directory=~/.vim/tmp/swap//   " swap files
+set undodir=~/.vim/tmp/undo/     " undo files
+set backupdir=~/.vim/tmp/backup/ " backups
+set directory=~/.vim/tmp/swap/   " swap files
 
 nnoremap <silent> <Leader>= :ZoomReset<CR>
 
@@ -499,16 +476,21 @@ let g:paredit_electric_return = 1
 " }}}
 "   NERDTree {{{
 " create a shortcut such that Ctrl+n is equivalent to :NERDTreeToggle
-nmap <silent> <c-n> :NERDTreeToggle<cr>
-noremap  <F2> :NERDTreeToggle<cr>
-inoremap <F2> <esc>:NERDTreeToggle<cr>
+map <silent> <c-n> :NERDTreeToggle<cr>
+"au Filetype nerdtree setlocal nolist
 
-au Filetype nerdtree setlocal nolist
+" auto-open NERDTree if file wasn't specified from vim call
+autocmd StdinReadPre * let s:sd_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" close Vim when NERDTree is only thing still open:
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
 
 let NERDTreeHighlightCursorline=1
 "let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$', 'whoosh_index', 'xapian_index', '.*.pid', 'monitor.py', '.*-fixtures-.*.json', '.*\.o$', 'db.db']
 
-let NERDTreeMinimalUI = 1
+"let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
 "   }}}
