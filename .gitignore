@@ -4,3 +4,4 @@ Trashed-Bundles
 
 /vim-update-bundles
 .DS_Store
+tmp/
