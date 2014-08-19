@@ -8,7 +8,7 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 "       }}}
 "       Generally Useful:  {{{
-Plugin 'gmarick/vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 Plugin 'https://github.com/scrooloose/nerdtree.git'
 Plugin 'https://github.com/kien/ctrlp.vim.git'
 Plugin 'twilight' " Colorscheme that isn't supposed to suck
@@ -45,7 +45,7 @@ Plugin 'https://github.com/tpope/vim-classpath.git'
 Plugin 'https://github.com/guns/vim-clojure-static.git'
 
 Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'kovisoft/slimv.vim'
+Plugin 'kovisoft/slimv'
 Plugin 'https://github.com/vim-scripts/paredit.vim'
 " Go Programming
 Plugin 'https://github.com/jnwhiteh/vim-golang.git'
