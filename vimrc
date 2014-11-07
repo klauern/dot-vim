@@ -207,6 +207,9 @@ nnoremap <silent> <Leader>= :ZoomReset<CR>
 " Ctrl-S to save
 inoremap <c-s> <Esc>:Update<CR>
 
+nnoremap <leader>E :edit $MYVIMRC<cr>
+nnoremap <leader>S :source $MYVIMRC<cr>
+
 " Cursor Color highlight
 ":hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 ":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
