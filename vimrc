@@ -117,42 +117,44 @@ let maplocalleader = "\\"
 " }}}
 "   Environments (GUI/Console {{{
 if has("gui_running")
-  set background=light
-  colorscheme zenburn
-  " See Adobe blog on Source Code Pro:
-  " https://blogs.adobe.com/typblography/2012/09/source-code-pro.html
-  set guifont=Source\ Code\ Pro:h14
-  set guioptions=egmrt
-  set guioptions-=T " Turn off Toolbar http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
+    set background=light
+    colorscheme zenburn
+    " See Adobe blog on Source Code Pro:
+    " https://blogs.adobe.com/typblography/2012/09/source-code-pro.html
+    set guifont=Source\ Code\ Pro:h14
+    set guioptions=egmrt
+    set guioptions-=T " Turn off Toolbar http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
     " Remove all the UI cruft
     "set go-=T
     "set go-=l
     "set go-=L
     "set go-=r
     "set go-=R
-  
-  if has("gui_gtk2")
-    "set guifont=Inconsolata\ 12
-    " See blog post on the font
-    " https://blogs.adobe.com/typblography/2012/09/source-code-pro.html
-    set guifont="Source Code Pro"
-  elseif has("gui_win32")
-    set guifont=Consolas:h11
-    source $VIMRUNTIME/mswin.vim
-    set background=light
-    colorscheme zenburn
-    winp 0 0
-    win 300 300 " It'll be too large but just maximize enough
-    au GUIEnter * simalt ~x
-  endif
+
+    if has("gui_gtk2")
+        "set guifont=Inconsolata\ 12
+        " See blog post on the font
+        " https://blogs.adobe.com/typblography/2012/09/source-code-pro.html
+        set guifont="Source Code Pro"
+    elseif has("gui_win32")
+        set guifont=Consolas:h11
+        source $VIMRUNTIME/mswin.vim
+        set background=light
+        colorscheme zenburn
+        winp 0 0
+        win 300 300 " It'll be too large but just maximize enough
+        au GUIEnter * simalt ~x
+    endif
 else
-  set t_Co=256
-  let g:solarized_termtrans=1
-  let g:solarized_termcolors=256
-  " for some reason, setting it dark then light again shows a different color
-  " scheme entirely than just setting it light to begin with...
-  set background=dark
-  colorscheme solarized
+    if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+        set t_Co=256
+    endif
+    let g:solarized_termtrans=1
+    let g:solarized_termcolors=256
+    " for some reason, setting it dark then light again shows a different color
+    " scheme entirely than just setting it light to begin with...
+    set background=dark
+    colorscheme solarized
 endif
 if has("win32") || has("win64")
     colorscheme Tomorrow-Night
@@ -228,9 +230,10 @@ nnoremap <silent> <Leader>n :call AbsoluteNumberToggle()<CR>
 "nnoremap <silent> <Leader>r :set relativenumber<CR> " , r to use relative numbers
 "nnoremap <silent> <Leader>n :set number<CR>         " , n to use regular line numbers
 
-
+" Settings for Ctrl-P plugin
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|class|)$|(^|[/\\])\.(hg|git|svn)($|[/\\])|__init__\.py'
 
 " }}}
 " }}}
@@ -240,7 +243,7 @@ let g:ctrlp_cmd = 'CtrlP'
 nnoremap / /\v
 vnoremap / /\v
 
-set ignorecase
+set ignorecase " ignore case-sensitive results when searching (/foo match /fOo)
 set smartcase
 set incsearch  " jumps to search word as you type (annoying but excellent)
 set showmatch
@@ -290,32 +293,32 @@ nnoremap <m-Up> :cprevious<cr>zvzz
 nmap <F8> :TagbarToggle<CR>
 " Tagbar for Go
 let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-    \ }
+            \ 'ctagstype' : 'go',
+            \ 'kinds'     : [
+            \ 'p:package',
+            \ 'i:imports:1',
+            \ 'c:constants',
+            \ 'v:variables',
+            \ 't:types',
+            \ 'n:interfaces',
+            \ 'w:fields',
+            \ 'e:embedded',
+            \ 'm:methods',
+            \ 'r:constructor',
+            \ 'f:functions'
+            \ ],
+            \ 'sro' : '.',
+            \ 'kind2scope' : {
+            \ 't' : 'ctype',
+            \ 'n' : 'ntype'
+            \ },
+            \ 'scope2kind' : {
+            \ 'ctype' : 't',
+            \ 'ntype' : 'n'
+            \ },
+            \ 'ctagsbin'  : 'gotags',
+            \ 'ctagsargs' : '-sort -silent'
+            \ }
 
 " }}}
 
@@ -336,10 +339,10 @@ noremap <leader>v <C-w>v
 
 " Visual Mode */# from Scrooloose {{{
 function! s:VSetSearch()
-  let temp = @@
-  norm! gvy
-  let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-  let @@ = temp
+    let temp = @@
+    norm! gvy
+    let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+    let @@ = temp
 endfunction
 
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><c-o>
@@ -438,11 +441,11 @@ let g:slimv_keybindings = 2
 "       Rainbow Parentheses {{{
 "       Enable rainbow parentheses for all buffers
 "augroup rainbow_parentheses
-    "au!
-    "au VimEnter * RainbowParenthesesActivate
-    "au BufEnter * RainbowParenthesesLoadRound
-    "au BufEnter * RainbowParenthesesLoadSquare
-    "au BufEnter * RainbowParenthesesLoadBraces
+"au!
+"au VimEnter * RainbowParenthesesActivate
+"au BufEnter * RainbowParenthesesLoadRound
+"au BufEnter * RainbowParenthesesLoadSquare
+"au BufEnter * RainbowParenthesesLoadBraces
 "augroup END
 "       }}}
 "       filetype clojure {{{
@@ -540,7 +543,7 @@ function! PulseCursorLine()
     setlocal cursorline
 
     redir => old_hi
-        silent execute 'hi CursorLine'
+    silent execute 'hi CursorLine'
     redir END
     let old_hi = split(old_hi, '\n')[0]
     let old_hi = substitute(old_hi, 'xxx', '', '')
@@ -581,39 +584,39 @@ endfunction
 " }}}
 " Automagic Clojure folding on defn's and defmacro's ---------------------- {{{
 function GetClojureFold()
-      if getline(v:lnum) =~ '^\s*(defn.*\s'
-            return ">1"
-      elseif getline(v:lnum) =~ '^\s*(defmacro.*\s'
-            return ">1"
-      elseif getline(v:lnum) =~ '^\s*(defmethod.*\s'
-            return ">1"
-      elseif getline(v:lnum) =~ '^\s*$'
-            let my_cljnum = v:lnum
-            let my_cljmax = line("$")
+    if getline(v:lnum) =~ '^\s*(defn.*\s'
+        return ">1"
+    elseif getline(v:lnum) =~ '^\s*(defmacro.*\s'
+        return ">1"
+    elseif getline(v:lnum) =~ '^\s*(defmethod.*\s'
+        return ">1"
+    elseif getline(v:lnum) =~ '^\s*$'
+        let my_cljnum = v:lnum
+        let my_cljmax = line("$")
 
-            while (1)
-                  let my_cljnum = my_cljnum + 1
-                  if my_cljnum > my_cljmax
-                        return "<1"
-                  endif
+        while (1)
+            let my_cljnum = my_cljnum + 1
+            if my_cljnum > my_cljmax
+                return "<1"
+            endif
 
-                  let my_cljdata = getline(my_cljnum)
+            let my_cljdata = getline(my_cljnum)
 
-                  " If we match an empty line, stop folding
-                  if my_cljdata =~ '^$'
-                        return "<1"
-                  else
-                        return "="
-                  endif
-            endwhile
-      else
-            return "="
-      endif
+            " If we match an empty line, stop folding
+            if my_cljdata =~ '^$'
+                return "<1"
+            else
+                return "="
+            endif
+        endwhile
+    else
+        return "="
+    endif
 endfunction
 
 function TurnOnClojureFolding()
-      setlocal foldexpr=GetClojureFold()
-      setlocal foldmethod=expr
+    setlocal foldexpr=GetClojureFold()
+    setlocal foldmethod=expr
 endfunction
 " }}}
 " Relative and Absolute Line Number toggling {{{
