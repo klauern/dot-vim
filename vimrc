@@ -48,8 +48,9 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'kovisoft/slimv'
 Plugin 'https://github.com/vim-scripts/paredit.vim'
 " Go Programming
-Plugin 'https://github.com/jnwhiteh/vim-golang.git'
-Plugin 'https://github.com/Blackrush/vim-gocode.git'
+"Plugin 'https://github.com/jnwhiteh/vim-golang.git'
+"Plugin 'https://github.com/Blackrush/vim-gocode.git'
+Plugin 'fatih/vim-go'
 " }}}
 Plugin 'https://github.com/plasticboy/vim-markdown.git'
 call vundle#end()
