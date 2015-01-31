@@ -4,7 +4,7 @@ set nocompatible
 filetype off
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim/ 
+set rtp+=$HOME/.vim/bundle/Vundle.vim/ 
 call vundle#begin()
 "       }}}
 "       Generally Useful:  {{{
@@ -14,17 +14,18 @@ Plugin 'https://github.com/kien/ctrlp.vim.git'
 Plugin 'twilight' " Colorscheme that isn't supposed to suck
 Plugin 'https://github.com/vim-scripts/Zenburn.git'
 Plugin 'https://github.com/chriskempson/vim-tomorrow-theme.git'
-Plugin 'tpope/vim-speeddating'
+"Plugin 'tpope/vim-speeddating'
 Plugin 'https://github.com/sukima/xmledit.git'
-Plugin 'https://github.com/Lokaltog/vim-powerline'
+"Plugin 'https://github.com/powerline/powerline' " Needs Python, hence
+Plugin 'bling/vim-airline' " Why I prefer vim-airline
 
 " Tim Pope's Session management tool :Obsess (record session) and :Obsess! (delete)
-Plugin 'https://github.com/tpope/vim-obsession.git'
-Plugin 'Tabular'
+"Plugin 'https://github.com/tpope/vim-obsession.git'
+"Plugin 'Tabular' " Maybe use junegunn/vim-easy-align instead
 Plugin 'https://github.com/altercation/vim-colors-solarized.git'
-Plugin 'xml.vim'
-Plugin 'Command-T'
-Plugin 'zoom.vim'
+Plugin 'othree/xml.vim'
+Plugin 'https://github.com/wincent/Command-T'
+"Plugin 'zoom.vim'
 Plugin 'https://github.com/Lokaltog/vim-easymotion.git'
 " }}}
 "       Programming: {{{
@@ -32,21 +33,20 @@ Plugin 'https://github.com/scrooloose/syntastic.git'
 Plugin 'https://github.com/majutsushi/tagbar.git'
 Plugin 'https://github.com/scrooloose/nerdcommenter.git'
 Plugin 'https://github.com/tpope/vim-surround.git'
-Plugin 'https://github.com/vim-scripts/Align.git'
+"Plugin 'https://github.com/vim-scripts/Align.git'
 Plugin 'https://github.com/tpope/vim-fugitive.git'
-Plugin 'https://github.com/vim-scripts/jQuery.git'
+"Plugin 'https://github.com/vim-scripts/jQuery.git'
 Plugin 'https://github.com/tpope/vim-git.git'
 Plugin 'https://github.com/thinca/vim-fontzoom.git'
-Plugin 'https://github.com/kchmck/vim-coffee-script.git'
-Plugin 'https://github.com/pangloss/vim-javascript.git'
+"Plugin 'https://github.com/kchmck/vim-coffee-script.git'
+"Plugin 'https://github.com/pangloss/vim-javascript.git'
 Plugin 'https://github.com/tpope/vim-unimpaired.git'
-Plugin 'https://github.com/tpope/vim-fireplace.git'
-Plugin 'https://github.com/tpope/vim-classpath.git'
-Plugin 'https://github.com/guns/vim-clojure-static.git'
-
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'kovisoft/slimv'
-Plugin 'https://github.com/vim-scripts/paredit.vim'
+"Plugin 'https://github.com/tpope/vim-fireplace.git'
+"Plugin 'https://github.com/tpope/vim-classpath.git'
+"Plugin 'https://github.com/guns/vim-clojure-static.git'
+"Plugin 'kien/rainbow_parentheses.vim'
+"Plugin 'kovisoft/slimv'
+"Plugin 'https://github.com/vim-scripts/paredit.vim'
 " Go Programming
 "Plugin 'https://github.com/jnwhiteh/vim-golang.git'
 "Plugin 'https://github.com/Blackrush/vim-gocode.git'
@@ -533,6 +533,30 @@ augroup ft_vim
     au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
 " }}}
+"   Go {{{
+"
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+
+"
+"   }}}
+"   Vim-Airline {{{
+ let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ '' : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ '' : 'S',
+      \ }
+"   }}}
 " }}}
 " Pulse ------------------------------------------------------------------- {{{
 function! PulseCursorLine()
