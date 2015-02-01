@@ -18,6 +18,7 @@ Plugin 'https://github.com/chriskempson/vim-tomorrow-theme.git'
 Plugin 'https://github.com/sukima/xmledit.git'
 "Plugin 'https://github.com/powerline/powerline' " Needs Python, hence
 Plugin 'bling/vim-airline' " Why I prefer vim-airline
+Plugin 'chase/vim-ansible-yaml'
 
 " Tim Pope's Session management tool :Obsess (record session) and :Obsess! (delete)
 "Plugin 'https://github.com/tpope/vim-obsession.git'
