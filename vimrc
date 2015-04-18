@@ -4,7 +4,7 @@ set nocompatible
 filetype off
 
 " set the runtime path to include Vundle and initialize
-set rtp+=$HOME/.vim/bundle/Vundle.vim/ 
+set rtp+=$HOME/.vim/bundle/Vundle.vim/
 call vundle#begin()
 "       }}}
 "       Generally Useful:  {{{
@@ -49,21 +49,20 @@ Plugin 'https://github.com/tpope/vim-unimpaired.git'
 "Plugin 'kovisoft/slimv'
 "Plugin 'https://github.com/vim-scripts/paredit.vim'
 " Go Programming
-"Plugin 'https://github.com/jnwhiteh/vim-golang.git'
-"Plugin 'https://github.com/Blackrush/vim-gocode.git'
 Plugin 'fatih/vim-go'
-" }}}
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/unite.vim', { 'build' : { 'windows' : 'toolsupdate-dll-mingw', 'cygwin' : 'make -f make_cygwin.mak', 'mac' : 'make -f make_mac.mak', 'linux' : 'make', 'unix' : 'gmake' } }
 Plugin 'https://github.com/plasticboy/vim-markdown.git'
+" }}}
 call vundle#end()
 filetype plugin indent on
-" }}}
 "   }}}
-" call pathogen#runtime_append_all_bundles()
 syntax on
 set nocompatible
 
 " Basic options ----------------------------------------------------------- {{{
-"   General {{{
+"   General --------------------------------------------------------------- {{{
 set encoding=utf-8
 set modelines=0
 set autoindent
@@ -101,7 +100,7 @@ set title
 set tags+=tags;$HOME
 
 " }}}
-"   Tabs, spaces, wrapping {{{
+"   Tabs, spaces, wrapping ------------------------------------------------ {{{
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -113,11 +112,11 @@ set textwidth=80
 set formatoptions=qrn1
 set colorcolumn=+1
 " }}}
-"   Leader {{{
+"   Leader ---------------------------------------------------------------- {{{
 let mapleader = ","
 let maplocalleader = "\\"
 " }}}
-"   Environments (GUI/Console {{{
+"   Environments (GUI/Console --------------------------------------------- {{{
 if has("gui_running")
     set background=light
     colorscheme zenburn
@@ -167,7 +166,7 @@ if has("win32") || has("win64")
     set shellredir=>
 endif
 " }}}
-"   Line bubbling {{{
+"   Line bubbling --------------------------------------------------------- {{{
 " Bubble single lines
 nmap <C-Up> [e
 nmap <C-Down> ]e
@@ -175,7 +174,7 @@ nmap <C-Down> ]e
 vmap <C-Down> ]egv
 vmap <C-Up> [egv
 " }}}
-"   Wildmenu completion {{{
+"   Wildmenu completion --------------------------------------------------- {{{
 
 set wildmenu
 set wildmode=list:longest
@@ -189,7 +188,7 @@ set wildignore+=*.DS_Store                       " OSX bullshit
 set wildignore+=classes
 
 " }}}
-"   Everything Else {{{
+"   Everything Else ------------------------------------------------------- {{{
 set vb t_vb=
 set ruler
 set backup
@@ -505,8 +504,8 @@ let NERDTreeDirArrows = 1
 "   Ruby {{{
 
 " ruby standard 2 spaces, always
-au BufRead,BufNewFile *.rb,*.rhtml set shiftwidth=2 
-au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2 
+au BufRead,BufNewFile *.rb,*.rhtml set shiftwidth=2
+au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2
 
 augroup ft_ruby
     au!
@@ -535,13 +534,28 @@ augroup ft_vim
 augroup END
 " }}}
 "   Go {{{
-"
-let g:go_fmt_command = "goimports"
+
+" Go keyboard mappings
+au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
+" Enable syntax highting on everything
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
-
-"
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
 "   }}}
 "   Vim-Airline {{{
  let g:airline_mode_map = {
