@@ -50,7 +50,8 @@ Plugin 'https://github.com/tpope/vim-unimpaired.git'
 "Plugin 'https://github.com/vim-scripts/paredit.vim'
 " Go Programming
 Plugin 'fatih/vim-go'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Plugin 'Blackrush/vim-gocode' " This is a Vundle-friendly port of the below repo
+"Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim', { 'build' : { 'windows' : 'toolsupdate-dll-mingw', 'cygwin' : 'make -f make_cygwin.mak', 'mac' : 'make -f make_mac.mak', 'linux' : 'make', 'unix' : 'gmake' } }
 Plugin 'https://github.com/plasticboy/vim-markdown.git'
