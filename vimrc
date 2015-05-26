@@ -55,6 +55,12 @@ Plugin 'Blackrush/vim-gocode' " This is a Vundle-friendly port of the below repo
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim', { 'build' : { 'windows' : 'toolsupdate-dll-mingw', 'cygwin' : 'make -f make_cygwin.mak', 'mac' : 'make -f make_mac.mak', 'linux' : 'make', 'unix' : 'gmake' } }
 Plugin 'https://github.com/plasticboy/vim-markdown.git'
+" Rust Programming
+Plugin 'wting/rust.vim'
+Plugin 'cespare/vim-toml'
+
+" Nim/Nimrod Programming
+Plugin 'zah/nim.vim'
 " }}}
 call vundle#end()
 filetype plugin indent on
@@ -295,32 +301,32 @@ nnoremap <m-Up> :cprevious<cr>zvzz
 nmap <F8> :TagbarToggle<CR>
 " Tagbar for Go
 let g:tagbar_type_go = {
-            \ 'ctagstype' : 'go',
-            \ 'kinds'     : [
-            \ 'p:package',
-            \ 'i:imports:1',
-            \ 'c:constants',
-            \ 'v:variables',
-            \ 't:types',
-            \ 'n:interfaces',
-            \ 'w:fields',
-            \ 'e:embedded',
-            \ 'm:methods',
-            \ 'r:constructor',
-            \ 'f:functions'
-            \ ],
-            \ 'sro' : '.',
-            \ 'kind2scope' : {
-            \ 't' : 'ctype',
-            \ 'n' : 'ntype'
-            \ },
-            \ 'scope2kind' : {
-            \ 'ctype' : 't',
-            \ 'ntype' : 'n'
-            \ },
-            \ 'ctagsbin'  : 'gotags',
-            \ 'ctagsargs' : '-sort -silent'
-            \ }
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 
 " }}}
 
@@ -557,6 +563,8 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
+
 "   }}}
 "   Vim-Airline {{{
  let g:airline_mode_map = {
@@ -572,6 +580,20 @@ let g:go_fmt_command = "goimports"
       \ 'S'  : 'S',
       \ '' : 'S',
       \ }
+"   }}}
+"   Nim/NimRod {{{
+
+fun! JumpToDef()
+  if exists("*GotoDefinition_" . &filetype)
+    call GotoDefinition_{&filetype}()
+  else
+    exe "norm! \<C-]>"
+  endif
+endf
+
+" Jump to tag
+nn <M-g> :call JumpToDef()<cr>
+ino <M-g> <esc>:call JumpToDef()<cr>i
 "   }}}
 " }}}
 " Pulse ------------------------------------------------------------------- {{{
