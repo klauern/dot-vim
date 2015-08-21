@@ -1,71 +1,86 @@
-"   Vundle {{{
-"       Setup: {{{
-set nocompatible
-filetype off
-
-" set the runtime path to include Vundle and initialize
-set rtp+=$HOME/.vim/bundle/Vundle.vim/
-call vundle#begin()
-"       }}}
+"   vim-plug
+" On windows, this plugin makes some assumptions about where it expects the .vim dir to be
+" since I use ~/.vim everywhere, it's not ~/vimfiles, but .vim, so the next two lines are
+" modified a bit from the norm to make this work...
+set rtp+=~/.vim/
+call plug#begin('$HOME/.vim/plugged')
 "       Generally Useful:  {{{
-Plugin 'gmarik/Vundle.vim'
-Plugin 'https://github.com/scrooloose/nerdtree.git'
-Plugin 'https://github.com/kien/ctrlp.vim.git'
-Plugin 'twilight' " Colorscheme that isn't supposed to suck
-Plugin 'https://github.com/vim-scripts/Zenburn.git'
-Plugin 'https://github.com/chriskempson/vim-tomorrow-theme.git'
-"Plugin 'tpope/vim-speeddating'
-Plugin 'https://github.com/sukima/xmledit.git'
-"Plugin 'https://github.com/powerline/powerline' " Needs Python, hence
-Plugin 'bling/vim-airline' " Why I prefer vim-airline
-Plugin 'chase/vim-ansible-yaml'
+Plug 'gmarik/Vundle.vim'
+Plug 'https://github.com/scrooloose/nerdtree.git'
+Plug 'https://github.com/kien/ctrlp.vim.git'
+Plug 'twilight' " Colorscheme that isn't supposed to suck
+Plug 'https://github.com/vim-scripts/Zenburn.git'
+Plug 'https://github.com/chriskempson/vim-tomorrow-theme.git'
+"Plug 'tpope/vim-speeddating'
+Plug 'https://github.com/sukima/xmledit.git'
+"Plug 'https://github.com/powerline/powerline' " Needs Python, hence
+Plug 'bling/vim-airline' " Why I prefer vim-airline
+Plug 'chase/vim-ansible-yaml'
+Plug 'jlanzarotta/bufexplorer'
 
 " Tim Pope's Session management tool :Obsess (record session) and :Obsess! (delete)
-"Plugin 'https://github.com/tpope/vim-obsession.git'
-"Plugin 'Tabular' " Maybe use junegunn/vim-easy-align instead
-Plugin 'https://github.com/altercation/vim-colors-solarized.git'
-Plugin 'othree/xml.vim'
-Plugin 'https://github.com/wincent/Command-T'
-"Plugin 'zoom.vim'
-Plugin 'https://github.com/Lokaltog/vim-easymotion.git'
+"Plug 'https://github.com/tpope/vim-obsession.git'
+"Plug 'Tabular' " Maybe use junegunn/vim-easy-align instead
+Plug 'https://github.com/altercation/vim-colors-solarized.git'
+Plug 'othree/xml.vim'
+Plug 'https://github.com/wincent/Command-T'
+"Plug 'zoom.vim'
+Plug 'https://github.com/Lokaltog/vim-easymotion.git'
 " }}}
 "       Programming: {{{
-Plugin 'https://github.com/scrooloose/syntastic.git'
-Plugin 'https://github.com/majutsushi/tagbar.git'
-Plugin 'https://github.com/scrooloose/nerdcommenter.git'
-Plugin 'https://github.com/tpope/vim-surround.git'
-"Plugin 'https://github.com/vim-scripts/Align.git'
-Plugin 'https://github.com/tpope/vim-fugitive.git'
-"Plugin 'https://github.com/vim-scripts/jQuery.git'
-Plugin 'https://github.com/tpope/vim-git.git'
-Plugin 'https://github.com/thinca/vim-fontzoom.git'
-"Plugin 'https://github.com/kchmck/vim-coffee-script.git'
-"Plugin 'https://github.com/pangloss/vim-javascript.git'
-Plugin 'https://github.com/tpope/vim-unimpaired.git'
-"Plugin 'https://github.com/tpope/vim-fireplace.git'
-"Plugin 'https://github.com/tpope/vim-classpath.git'
-"Plugin 'https://github.com/guns/vim-clojure-static.git'
-"Plugin 'kien/rainbow_parentheses.vim'
-"Plugin 'kovisoft/slimv'
-"Plugin 'https://github.com/vim-scripts/paredit.vim'
+Plug 'https://github.com/scrooloose/syntastic.git'
+Plug 'https://github.com/majutsushi/tagbar.git'
+Plug 'https://github.com/scrooloose/nerdcommenter.git'
+Plug 'https://github.com/tpope/vim-surround.git'
+"Plug 'https://github.com/vim-scripts/Align.git'
+Plug 'https://github.com/tpope/vim-fugitive.git'
+"Plug 'https://github.com/vim-scripts/jQuery.git'
+Plug 'https://github.com/tpope/vim-git.git'
+Plug 'https://github.com/thinca/vim-fontzoom.git'
+"Plug 'https://github.com/kchmck/vim-coffee-script.git'
+"Plug 'https://github.com/pangloss/vim-javascript.git'
+Plug 'https://github.com/tpope/vim-unimpaired.git'
+" Clojure
+Plug 'https://github.com/tpope/vim-fireplace.git'
+Plug 'https://github.com/tpope/vim-classpath.git'
+Plug 'https://github.com/guns/vim-clojure-static.git'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'kovisoft/slimv'
+Plug 'https://github.com/vim-scripts/paredit.vim'
+Plug 'https://github.com/venantius/vim-eastwood'
+Plug 'https://github.com/venantius/vim-cljfmt'
+Plug 'https://github.com/tpope/vim-salve'
+
+
 " Go Programming
-Plugin 'fatih/vim-go'
-Plugin 'Blackrush/vim-gocode' " This is a Vundle-friendly port of the below repo
-"Plugin 'nsf/gocode', {'rtp': 'vim/'}
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/unite.vim', { 'build' : { 'windows' : 'toolsupdate-dll-mingw', 'cygwin' : 'make -f make_cygwin.mak', 'mac' : 'make -f make_mac.mak', 'linux' : 'make', 'unix' : 'gmake' } }
-Plugin 'https://github.com/plasticboy/vim-markdown.git'
+Plug 'fatih/vim-go'
+Plug 'Blackrush/vim-gocode' " This is a Vundle-friendly port of the below repo
+"Plug 'nsf/gocode', {'rtp': 'vim/'}
+Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/unite.vim', { 'build' : { 'windows' : 'toolsupdate-dll-mingw', 'cygwin' : 'make -f make_cygwin.mak', 'mac' : 'make -f make_mac.mak', 'linux' : 'make', 'unix' : 'gmake' } }
+Plug 'https://github.com/plasticboy/vim-markdown.git'
 " Rust Programming
-Plugin 'wting/rust.vim'
-Plugin 'cespare/vim-toml'
+Plug 'wting/rust.vim'
+Plug 'cespare/vim-toml'
 
 " Nim/Nimrod Programming
-Plugin 'zah/nim.vim'
+Plug 'zah/nim.vim'
 " }}}
-call vundle#end()
-filetype plugin indent on
+call plug#end()
+
+"   Vundle {{{
+"       Setup: {{{
+"set nocompatible
+"filetype off
+
+" set the runtime path to include Vundle and initialize
+"set rtp+=$HOME/.vim/bundle/Vundle.vim/
+"call vundle#begin()
+"       }}}
+"call vundle#end()
+"filetype plugin indent on
 "   }}}
-syntax on
+"syntax on
 set nocompatible
 
 " Basic options ----------------------------------------------------------- {{{
