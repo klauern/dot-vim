@@ -54,8 +54,8 @@ Plug 'https://github.com/tpope/vim-salve'
 
 " Go Programming
 Plug 'fatih/vim-go'
-Plug 'Blackrush/vim-gocode' " This is a Vundle-friendly port of the below repo
-"Plug 'nsf/gocode', {'rtp': 'vim/'}
+"Plug 'Blackrush/vim-gocode' " This is a Vundle-friendly port of the below repo
+Plug 'nsf/gocode', {'rtp': 'vim/'}
 Plug 'Shougo/vimproc.vim'
 Plug 'Shougo/unite.vim', { 'build' : { 'windows' : 'toolsupdate-dll-mingw', 'cygwin' : 'make -f make_cygwin.mak', 'mac' : 'make -f make_mac.mak', 'linux' : 'make', 'unix' : 'gmake' } }
 Plug 'https://github.com/plasticboy/vim-markdown.git'
@@ -63,8 +63,12 @@ Plug 'https://github.com/plasticboy/vim-markdown.git'
 Plug 'wting/rust.vim'
 Plug 'cespare/vim-toml'
 
-" Nim/Nimrod Programming
-Plug 'zah/nim.vim'
+" Javscript
+Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'ternjs/tern_for_vim'
+Plug 'posva/vim-vue'
 " }}}
 call plug#end()
 
@@ -144,7 +148,8 @@ if has("gui_running")
     colorscheme zenburn
     " See Adobe blog on Source Code Pro:
     " https://blogs.adobe.com/typblography/2012/09/source-code-pro.html
-    set guifont=Source\ Code\ Pro:h14
+    "set guifont=Source\ Code\ Pro:h14
+    set guifont=Hack:h10
     set guioptions=egmrt
     set guioptions-=T " Turn off Toolbar http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
     " Remove all the UI cruft
@@ -160,10 +165,11 @@ if has("gui_running")
         " https://blogs.adobe.com/typblography/2012/09/source-code-pro.html
         set guifont="Source Code Pro"
     elseif has("gui_win32")
-        set guifont=Consolas:h11
+        "set guifont=Consolas:h11
+        set guifont=Hack:h10
         source $VIMRUNTIME/mswin.vim
         set background=light
-        colorscheme zenburn
+        "colorscheme zenburn
         winp 0 0
         win 300 300 " It'll be too large but just maximize enough
         au GUIEnter * simalt ~x
@@ -257,6 +263,17 @@ nnoremap <silent> <Leader>n :call AbsoluteNumberToggle()<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|class|)$|(^|[/\\])\.(hg|git|svn)($|[/\\])|__init__\.py'
+
+let g:ctrlp_use_caching = 0
+"if executable('pt')
+    "if has("win32") || has("win64")
+        "set grepprg=pt\ /nogroup\ /nocolor
+        "let g:ctrlp_user_command = 'pt %s /l /nocolor /g ""'
+    "else
+        "set grepprg=pt\ --nogroup\ --nocolor
+        "let g:ctrlp_user_command = 'pt %s -l --nocolor -g ""'
+    "endif
+"endif
 
 " }}}
 " }}}
