@@ -54,6 +54,8 @@ Plug 'https://github.com/tpope/vim-salve'
 
 " Go Programming
 Plug 'fatih/vim-go'
+" Godoc Explorer
+Plug 'garyburd/go-explorer'
 "Plug 'Blackrush/vim-gocode' " This is a Vundle-friendly port of the below repo
 Plug 'nsf/gocode', {'rtp': 'vim/'}
 Plug 'Shougo/vimproc.vim'
