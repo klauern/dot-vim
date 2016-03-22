@@ -180,19 +180,16 @@ else
     if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
         set t_Co=256
     endif
-    let g:solarized_termtrans=1
-    let g:solarized_termcolors=256
-    " for some reason, setting it dark then light again shows a different color
-    " scheme entirely than just setting it light to begin with...
-    set background=dark
-    " {rtp}/autoload/has.vim
-    function! has#colorscheme(name)
-        pat = 'colors/'.a:name.'.vim'
-        return !empty(globpath(&rtp, pat))
-    endfunction
-    if has#colorscheme('solarized')
+    try
+        let g:solarized_termtrans=1
+        let g:solarized_termcolors=256
+        " for some reason, setting it dark then light again shows a different color
+        " scheme entirely than just setting it light to begin with...
+        set background=dark
         colorscheme solarized
-    endif
+    catch /^Vim\%((\a\+)\)\=:E185/
+        colorscheme zenburn
+    endtry
 endif
 if has("win32") || has("win64")
     colorscheme Tomorrow-Night
