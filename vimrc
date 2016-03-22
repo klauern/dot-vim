@@ -110,13 +110,13 @@ set undolevels=1000
 set undoreload=10000
 set cpoptions+=J
 set list
-set listchars=tab:�\ ,eol:�,extends:�,precedes:�
+set listchars=tab:¿\ ,eol:¬,extends:¿,precedes:¿
 set lazyredraw
 set matchtime=3
-set showbreak=↪
+set showbreak=â†ª
 set splitbelow
 set splitright
-set fillchars=diff:⣿
+set fillchars=diff:â£¿
 set ttimeout
 set notimeout
 set nottimeout
@@ -185,7 +185,9 @@ else
     " for some reason, setting it dark then light again shows a different color
     " scheme entirely than just setting it light to begin with...
     set background=dark
-    colorscheme solarized
+    if has#colorscheme('solarized')
+        colorscheme solarized
+    endif
 endif
 if has("win32") || has("win64")
     colorscheme Tomorrow-Night
@@ -324,10 +326,10 @@ noremap L g_
 " Previous  |     M-l                M-Up      |
 "            ----------------------------------
 "
-nnoremap ˚ :lnext<cr>zvzz
-nnoremap ¬ :lprevious<cr>zvzz
-inoremap ˚ <esc>:lnext<cr>zvzz
-inoremap ¬ <esc>:lprevious<cr>zvzz
+nnoremap Ëš :lnext<cr>zvzz
+nnoremap Â¬ :lprevious<cr>zvzz
+inoremap Ëš <esc>:lnext<cr>zvzz
+inoremap Â¬ <esc>:lprevious<cr>zvzz
 nnoremap <m-Down> :cnext<cr>zvzz
 nnoremap <m-Up> :cprevious<cr>zvzz
 
@@ -419,7 +421,7 @@ function! MyFoldText() " {{{
 
     let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
     let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
-    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+    return line . 'â€¦' . repeat(" ",fillcharcount) . foldedlinecount . 'â€¦' . ' '
 endfunction " }}}
 
 fu! CustomFoldText()
