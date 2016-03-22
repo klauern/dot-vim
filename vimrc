@@ -185,6 +185,11 @@ else
     " for some reason, setting it dark then light again shows a different color
     " scheme entirely than just setting it light to begin with...
     set background=dark
+    " {rtp}/autoload/has.vim
+    function! has#colorscheme(name)
+        pat = 'colors/'.a:name.'.vim'
+        return !empty(globpath(&rtp, pat))
+    endfunction
     if has#colorscheme('solarized')
         colorscheme solarized
     endif
