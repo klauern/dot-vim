@@ -116,7 +116,7 @@ set matchtime=3
 set showbreak=â†ª
 set splitbelow
 set splitright
-set fillchars=diff:â£¿
+set fillchars=â
 set ttimeout
 set notimeout
 set nottimeout
