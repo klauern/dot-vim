@@ -116,7 +116,6 @@ set matchtime=3
 set showbreak=â†ª
 set splitbelow
 set splitright
-set fillchars=â
 set ttimeout
 set notimeout
 set nottimeout
@@ -188,7 +187,7 @@ else
         set background=dark
         colorscheme solarized
     catch /^Vim\%((\a\+)\)\=:E185/
-        colorscheme zenburn
+        " colorscheme zenburn
     endtry
 endif
 if has("win32") || has("win64")
