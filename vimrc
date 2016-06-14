@@ -21,7 +21,7 @@ Plug 'jlanzarotta/bufexplorer'
 
 " Tim Pope's Session management tool :Obsess (record session) and :Obsess! (delete)
 "Plug 'https://github.com/tpope/vim-obsession.git'
-"Plug 'Tabular' " Maybe use junegunn/vim-easy-align instead
+Plug 'junegunn/vim-easy-align'
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
 Plug 'nanotech/jellybeans.vim'
 Plug 'othree/xml.vim'
