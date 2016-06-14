@@ -5,7 +5,7 @@
 set rtp+=~/.vim/
 call plug#begin('$HOME/.vim/plugged')
 "       Generally Useful:  {{{
-Plug 'gmarik/Vundle.vim'
+"Plug 'gmarik/Vundle.vim'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/kien/ctrlp.vim.git'
 Plug 'twilight' " Colorscheme that isn't supposed to suck
