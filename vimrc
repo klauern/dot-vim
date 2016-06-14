@@ -187,6 +187,7 @@ else
         set background=dark
         colorscheme solarized
     catch /^Vim\%((\a\+)\)\=:E185/
+        set background=dark
         " colorscheme zenburn
     endtry
 endif
