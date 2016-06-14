@@ -22,6 +22,7 @@ Plug 'jlanzarotta/bufexplorer'
 "Plug 'https://github.com/tpope/vim-obsession.git'
 "Plug 'Tabular' " Maybe use junegunn/vim-easy-align instead
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
+Plug 'nanotech/jellybeans.vim'
 Plug 'othree/xml.vim'
 Plug 'https://github.com/wincent/Command-T'
 "Plug 'zoom.vim'
@@ -149,8 +150,8 @@ if has("gui_running")
     colorscheme zenburn
     " See Adobe blog on Source Code Pro:
     " https://blogs.adobe.com/typblography/2012/09/source-code-pro.html
-    "set guifont=Source\ Code\ Pro:h14
-    set guifont=Hack:h10
+    set guifont=Source\ Code\ Pro:h14
+    "set guifont=Hack:h12
     set guioptions=egmrt
     set guioptions-=T " Turn off Toolbar http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
     " Remove all the UI cruft
@@ -180,12 +181,15 @@ else
         set t_Co=256
     endif
     try
+        set background=dark
+        "let g:solarized_visibility = "high"
+        "let g:solarized_contrast = "high"
         let g:solarized_termtrans=1
-        let g:solarized_termcolors=256
+        "let g:solarized_termcolors=256
         " for some reason, setting it dark then light again shows a different color
         " scheme entirely than just setting it light to begin with...
-        set background=dark
-        colorscheme solarized
+        "colorscheme solarized
+        colorscheme jellybeans
     catch /^Vim\%((\a\+)\)\=:E185/
         set background=dark
         " colorscheme zenburn
