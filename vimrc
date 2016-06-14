@@ -43,36 +43,36 @@ Plug 'https://github.com/thinca/vim-fontzoom.git'
 "Plug 'https://github.com/pangloss/vim-javascript.git'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
 " Clojure
-Plug 'https://github.com/tpope/vim-fireplace.git'
-Plug 'https://github.com/tpope/vim-classpath.git'
-Plug 'https://github.com/guns/vim-clojure-static.git'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'kovisoft/slimv'
-Plug 'https://github.com/vim-scripts/paredit.vim'
-Plug 'https://github.com/venantius/vim-eastwood'
-Plug 'https://github.com/venantius/vim-cljfmt'
-Plug 'https://github.com/tpope/vim-salve'
+Plug 'https://github.com/tpope/vim-fireplace.git', { 'for': 'clojure' }
+Plug 'https://github.com/tpope/vim-classpath.git', { 'for': 'clojure' }
+Plug 'https://github.com/guns/vim-clojure-static.git', { 'for': 'clojure' }
+Plug 'kien/rainbow_parentheses.vim', { 'for': 'clojure' }
+Plug 'kovisoft/slimv', { 'for': 'clojure' }
+Plug 'https://github.com/vim-scripts/paredit.vim', { 'for': 'clojure' }
+Plug 'https://github.com/venantius/vim-eastwood', { 'for': 'clojure' }
+Plug 'https://github.com/venantius/vim-cljfmt', { 'for': 'clojure' }
+Plug 'https://github.com/tpope/vim-salve', { 'for': 'clojure' }
 
 
 " Go Programming
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'for': 'go' }
 " Godoc Explorer
-Plug 'garyburd/go-explorer'
+Plug 'garyburd/go-explorer', { 'for': 'go' }
 "Plug 'Blackrush/vim-gocode' " This is a Vundle-friendly port of the below repo
-Plug 'nsf/gocode', {'rtp': 'vim/'}
+Plug 'nsf/gocode', {'rtp': 'vim/', 'for': 'go' }
 Plug 'Shougo/vimproc.vim'
 Plug 'Shougo/unite.vim', { 'build' : { 'windows' : 'toolsupdate-dll-mingw', 'cygwin' : 'make -f make_cygwin.mak', 'mac' : 'make -f make_mac.mak', 'linux' : 'make', 'unix' : 'gmake' } }
 Plug 'https://github.com/plasticboy/vim-markdown.git'
 " Rust Programming
-Plug 'wting/rust.vim'
-Plug 'cespare/vim-toml'
+Plug 'wting/rust.vim', { 'for': 'rust' }
+Plug 'cespare/vim-toml', { 'for': 'rust' }
 
 " Javscript
-Plug 'pangloss/vim-javascript'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'ternjs/tern_for_vim'
-Plug 'posva/vim-vue'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
+Plug 'posva/vim-vue', { 'for': 'javascript' }
 " }}}
 call plug#end()
 
