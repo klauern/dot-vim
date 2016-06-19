@@ -23,6 +23,7 @@ Plug 'jlanzarotta/bufexplorer'
 "Plug 'https://github.com/tpope/vim-obsession.git'
 Plug 'junegunn/vim-easy-align'
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
+Plug 'antlypls/vim-colors-codeschool'
 Plug 'nanotech/jellybeans.vim'
 Plug 'othree/xml.vim'
 Plug 'https://github.com/wincent/Command-T'
@@ -152,8 +153,8 @@ if has("gui_running")
     colorscheme zenburn
     " See Adobe blog on Source Code Pro:
     " https://blogs.adobe.com/typblography/2012/09/source-code-pro.html
-    set guifont=Source\ Code\ Pro:h14
-    "set guifont=Hack:h12
+    "set guifont=Source\ Code\ Pro:h14
+    set guifont=Hack:h14
     set guioptions=egmrt
     set guioptions-=T " Turn off Toolbar http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
     " Remove all the UI cruft
@@ -164,6 +165,7 @@ if has("gui_running")
     "set go-=R
 
     if has("gui_gtk2")
+        set guifont=Hack:h14
         "set guifont=Inconsolata\ 12
         " See blog post on the font
         " https://blogs.adobe.com/typblography/2012/09/source-code-pro.html
@@ -173,7 +175,6 @@ if has("gui_running")
         set guifont=Hack:h10
         source $VIMRUNTIME/mswin.vim
         set background=light
-        "colorscheme zenburn
         winp 0 0
         win 300 300 " It'll be too large but just maximize enough
         au GUIEnter * simalt ~x
@@ -187,7 +188,7 @@ else
         "let g:solarized_visibility = "high"
         "let g:solarized_contrast = "high"
         let g:solarized_termtrans=1
-        "let g:solarized_termcolors=256
+        let g:solarized_termcolors=256
         " for some reason, setting it dark then light again shows a different color
         " scheme entirely than just setting it light to begin with...
         "colorscheme solarized
