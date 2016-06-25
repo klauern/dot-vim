@@ -11,23 +11,17 @@ Plug 'https://github.com/kien/ctrlp.vim.git'
 Plug 'twilight' " Colorscheme that isn't supposed to suck
 Plug 'https://github.com/vim-scripts/Zenburn.git'
 Plug 'https://github.com/chriskempson/vim-tomorrow-theme.git'
-"Plug 'tpope/vim-speeddating'
 Plug 'https://github.com/sukima/xmledit.git'
-"Plug 'https://github.com/powerline/powerline' " Needs Python, hence
-Plug 'bling/vim-airline' " Why I prefer vim-airline
-"Plug 'chase/vim-ansible-yaml'
+Plug 'bling/vim-airline' " I prefer vim-airline over powerline
 Plug 'pearofducks/ansible-vim'
 Plug 'jlanzarotta/bufexplorer'
 
-" Tim Pope's Session management tool :Obsess (record session) and :Obsess! (delete)
-"Plug 'https://github.com/tpope/vim-obsession.git'
 Plug 'junegunn/vim-easy-align'
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
 Plug 'antlypls/vim-colors-codeschool'
 Plug 'nanotech/jellybeans.vim'
 Plug 'othree/xml.vim'
 Plug 'https://github.com/wincent/Command-T'
-"Plug 'zoom.vim'
 Plug 'https://github.com/Lokaltog/vim-easymotion.git'
 " }}}
 "       Programming: {{{
@@ -36,61 +30,28 @@ Plug 'https://github.com/majutsushi/tagbar.git'
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/godlygeek/tabular.git'
-"Plug 'https://github.com/vim-scripts/Align.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
-"Plug 'https://github.com/vim-scripts/jQuery.git'
 Plug 'https://github.com/tpope/vim-git.git'
 Plug 'https://github.com/thinca/vim-fontzoom.git'
-"Plug 'https://github.com/kchmck/vim-coffee-script.git'
-"Plug 'https://github.com/pangloss/vim-javascript.git'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
-" Clojure
-Plug 'https://github.com/tpope/vim-fireplace.git', { 'for': 'clojure' }
-Plug 'https://github.com/tpope/vim-classpath.git', { 'for': 'clojure' }
-Plug 'https://github.com/guns/vim-clojure-static.git', { 'for': 'clojure' }
-Plug 'kien/rainbow_parentheses.vim', { 'for': 'clojure' }
-Plug 'kovisoft/slimv', { 'for': 'clojure' }
-Plug 'https://github.com/vim-scripts/paredit.vim', { 'for': 'clojure' }
-Plug 'https://github.com/venantius/vim-eastwood', { 'for': 'clojure' }
-Plug 'https://github.com/venantius/vim-cljfmt', { 'for': 'clojure' }
-Plug 'https://github.com/tpope/vim-salve', { 'for': 'clojure' }
 
-
-" Go Programming
+" Go Programming {{{
 Plug 'fatih/vim-go', { 'for': 'go' }
-" Godoc Explorer
+Plug 'Shougo/neocomplete.vim', { 'for': 'go' }
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'garyburd/go-explorer', { 'for': 'go' }
-"Plug 'Blackrush/vim-gocode' " This is a Vundle-friendly port of the below repo
-Plug 'nsf/gocode', {'rtp': 'vim/', 'for': 'go' }
 Plug 'Shougo/vimproc.vim'
 Plug 'Shougo/unite.vim', { 'build' : { 'windows' : 'toolsupdate-dll-mingw', 'cygwin' : 'make -f make_cygwin.mak', 'mac' : 'make -f make_mac.mak', 'linux' : 'make', 'unix' : 'gmake' } }
+" }}}
 Plug 'https://github.com/plasticboy/vim-markdown.git'
 " Rust Programming
 Plug 'wting/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'rust' }
 
-" Javscript
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
-Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
-Plug 'posva/vim-vue', { 'for': 'javascript' }
 " }}}
 call plug#end()
 
-"   Vundle {{{
-"       Setup: {{{
-"set nocompatible
-"filetype off
-
-" set the runtime path to include Vundle and initialize
-"set rtp+=$HOME/.vim/bundle/Vundle.vim/
-"call vundle#begin()
-"       }}}
-"call vundle#end()
-"filetype plugin indent on
-"   }}}
-"syntax on
 set nocompatible
 
 " Basic options ----------------------------------------------------------- {{{
@@ -215,20 +176,6 @@ nmap <C-Down> ]e
 vmap <C-Down> ]egv
 vmap <C-Up> [egv
 " }}}
-"   Wildmenu completion --------------------------------------------------- {{{
-
-set wildmenu
-set wildmode=list:longest
-
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
-set wildignore+=*.spl                            " compiled spelling word lists
-set wildignore+=*.sw?                            " Vim swap files
-set wildignore+=*.DS_Store                       " OSX bullshit
-
-" Clojure/Leiningen
-set wildignore+=classes
-
-" }}}
 "   Everything Else ------------------------------------------------------- {{{
 set vb t_vb=
 set ruler
@@ -238,8 +185,6 @@ set writebackup
 
 set scrolloff=3
 
-" TODO: Add settings for Windows support
-" can't do this unless I figure out a windows way of doing it
 " Backup directories
 set undofile
 set undodir=~/.vim/tmp/undo/     " undo files
@@ -247,12 +192,6 @@ set backupdir=~/.vim/tmp/backup/ " backups
 set directory=~/.vim/tmp/swap/   " swap files
 
 nnoremap <silent> <Leader>= :ZoomReset<CR>
-
-" Ctrl-S to save
-inoremap <c-s> <Esc>:Update<CR>
-
-nnoremap <leader>E :edit $MYVIMRC<cr>
-nnoremap <leader>S :source $MYVIMRC<cr>
 
 " Cursor Color highlight
 ":hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
@@ -268,9 +207,6 @@ nnoremap <leader>w <C-w>v<C-w>l  " Vertical split
 "nnoremap <leader>fb :FufBuffer<cr>
 nnoremap <silent> <Leader>r :call RelativeNumberToggle()<CR>
 nnoremap <silent> <Leader>n :call AbsoluteNumberToggle()<CR>
-
-"nnoremap <silent> <Leader>r :set relativenumber<CR> " , r to use relative numbers
-"nnoremap <silent> <Leader>n :set number<CR>         " , n to use regular line numbers
 
 " Settings for Ctrl-P plugin
 let g:ctrlp_map = '<c-p>'
@@ -303,21 +239,12 @@ set showmatch
 set hlsearch
 set gdefault
 
-"set scrolloff=3
-"set sidescroll=1
-"set sidescrolloff=10
-
 set virtualedit+=block
 
 noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 
 " Made D behave
 nnoremap D d$
-
-" Keep search matches in the middle of the window and pulse the line when moving
-" to them.
-nnoremap n nzzzv:call PulseCursorLine()<cr>
-nnoremap N Nzzzv:call PulseCursorLine()<cr>
 
 " Don't move on *
 nnoremap * *<c-o>
@@ -459,80 +386,6 @@ set foldtext=CustomFoldText()
 
 " }}}
 " Plugin and Filetype Settings -------------------------------------------- {{{
-"   Clojure {{{
-"       VimClojure {{{
-" To run, make sure you follow some instructions here: https://bitbucket.org/kotarak/vimclojure
-" you need to make a plugin dependency
-" Automatically determine indenting using fuzzy matching. e.g. the a line starting "(with-"
-" will be indented two spaces.
-let vimclojure#FuzzyIndent=1
-
-" Highlight built-in functions from clojure.core and friends
-let vimclojure#HighlightBuiltins=1
-
-" Highlight functions from contrib
-let vimclojure#HighlightContrib=1
-
-" As new symbols are identified using VimClojure's dynamic features, automatically
-" highlight them.
-let vimclojure#DynamicHighlighting=1
-
-" Color parens so they're easier to match visually
-let vimclojure#ParenRainbow=1
-if has("macunix")
-    " Yes, I want nailgun support
-    let vimclojure#WantNailgun = 1
-
-    " Full path to the nailgun client
-    let vimclojure#NailgunClient = "/usr/local/bin/ng"
-endif
-" }}}
-"       SLIMV {{{
-let g:slimv_leader = '\'
-let g:slimv_keybindings = 2
-" }}}
-"       Rainbow Parentheses {{{
-"       Enable rainbow parentheses for all buffers
-"augroup rainbow_parentheses
-"au!
-"au VimEnter * RainbowParenthesesActivate
-"au BufEnter * RainbowParenthesesLoadRound
-"au BufEnter * RainbowParenthesesLoadSquare
-"au BufEnter * RainbowParenthesesLoadBraces
-"augroup END
-"       }}}
-"       filetype clojure {{{
-augroup ft_clojure
-    au!
-
-    au FileType clojure call TurnOnClojureFolding()
-    "au FileType clojure compiler clojure
-    au FileType clojure setlocal report=100000
-    au FileType clojure nnoremap <buffer> o jI<cr><esc>kA
-    au FileType clojure nnoremap <buffer> O I<cr><esc>kA
-
-    au BufWinEnter        Slimv.REPL.clj setlocal winfixwidth
-    au BufNewFile,BufRead Slimv.REPL.clj setlocal nowrap
-    au BufNewFile,BufRead Slimv.REPL.clj setlocal foldlevel=99
-    au BufNewFile,BufRead Slimv.REPL.clj nnoremap <buffer> A GA
-    au BufNewFile,BufRead Slimv.REPL.clj nnoremap <buffer> <localleader>R :emenu REPL.<Tab>
-
-    " Fix the eval mapping.
-    au FileType clojure nmap <buffer> \ee \ed
-
-    " Indent top-level form.
-    au FileType clojure nmap <buffer> <localleader>= v((((((((((((=%
-
-    " Use a swank command that works, and doesn't require new app windows.
-    au FileType clojure let g:slimv_swank_cmd='!dtach -n /tmp/dtach-swank.sock -r winch lein swank'
-augroup END
-" }}}
-"       paredit {{{
-" when inside a (), <Enter> will open a newline.  Closing ) completes
-" form either way
-let g:paredit_electric_return = 1
-"       }}}
-" }}}
 "   NERDTree {{{
 " create a shortcut such that Ctrl+n is equivalent to :NERDTreeToggle
 map <silent> <c-n> :NERDTreeToggle<cr>
@@ -601,6 +454,26 @@ au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
+
+let g:neocomplete#enable_at_startup = 1
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
 " Enable syntax highting on everything
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -626,106 +499,6 @@ let g:go_fmt_fail_silently = 1
       \ '' : 'S',
       \ }
 "   }}}
-"   Nim/NimRod {{{
-
-fun! JumpToDef()
-  if exists("*GotoDefinition_" . &filetype)
-    call GotoDefinition_{&filetype}()
-  else
-    exe "norm! \<C-]>"
-  endif
-endf
-
-" Jump to tag
-nn <M-g> :call JumpToDef()<cr>
-ino <M-g> <esc>:call JumpToDef()<cr>i
-"   }}}
-" }}}
-" Pulse ------------------------------------------------------------------- {{{
-function! PulseCursorLine()
-    let current_window = winnr()
-
-    windo set nocursorline
-    execute current_window . 'wincmd w'
-
-    setlocal cursorline
-
-    redir => old_hi
-    silent execute 'hi CursorLine'
-    redir END
-    let old_hi = split(old_hi, '\n')[0]
-    let old_hi = substitute(old_hi, 'xxx', '', '')
-
-    hi CursorLine guibg=#2a2a2a ctermbg=233
-    redraw
-    sleep 20m
-
-    hi CursorLine guibg=#333333 ctermbg=235
-    redraw
-    sleep 20m
-
-    hi CursorLine guibg=#3a3a3a ctermbg=237
-    redraw
-    sleep 20m
-
-    hi CursorLine guibg=#444444 ctermbg=239
-    redraw
-    sleep 20m
-
-    hi CursorLine guibg=#3a3a3a ctermbg=237
-    redraw
-    sleep 20m
-
-    hi CursorLine guibg=#333333 ctermbg=235
-    redraw
-    sleep 20m
-
-    hi CursorLine guibg=#2a2a2a ctermbg=233
-    redraw
-    sleep 20m
-
-    execute 'hi ' . old_hi
-
-    windo set cursorline
-    execute current_window . 'wincmd w'
-endfunction
-" }}}
-" Automagic Clojure folding on defn's and defmacro's ---------------------- {{{
-function GetClojureFold()
-    if getline(v:lnum) =~ '^\s*(defn.*\s'
-        return ">1"
-    elseif getline(v:lnum) =~ '^\s*(defmacro.*\s'
-        return ">1"
-    elseif getline(v:lnum) =~ '^\s*(defmethod.*\s'
-        return ">1"
-    elseif getline(v:lnum) =~ '^\s*$'
-        let my_cljnum = v:lnum
-        let my_cljmax = line("$")
-
-        while (1)
-            let my_cljnum = my_cljnum + 1
-            if my_cljnum > my_cljmax
-                return "<1"
-            endif
-
-            let my_cljdata = getline(my_cljnum)
-
-            " If we match an empty line, stop folding
-            if my_cljdata =~ '^$'
-                return "<1"
-            else
-                return "="
-            endif
-        endwhile
-    else
-        return "="
-    endif
-endfunction
-
-function TurnOnClojureFolding()
-    setlocal foldexpr=GetClojureFold()
-    setlocal foldmethod=expr
-endfunction
 " }}}
 " Relative and Absolute Line Number toggling {{{
 function! AbsoluteNumberToggle()
