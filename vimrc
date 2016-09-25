@@ -5,7 +5,6 @@
 set rtp+=~/.vim/
 call plug#begin('$HOME/.vim/plugged')
 "       Generally Useful:  {{{
-"Plug 'gmarik/Vundle.vim'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/kien/ctrlp.vim.git'
 Plug 'twilight' " Colorscheme that isn't supposed to suck
@@ -114,16 +113,10 @@ if has("gui_running")
     colorscheme zenburn
     " See Adobe blog on Source Code Pro:
     " https://blogs.adobe.com/typblography/2012/09/source-code-pro.html
-    "set guifont=Source\ Code\ Pro:h14
-    set guifont=Hack:h14
     set guioptions=egmrt
     set guioptions-=T " Turn off Toolbar http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
-    " Remove all the UI cruft
-    "set go-=T
-    "set go-=l
-    "set go-=L
-    "set go-=r
-    "set go-=R
+    set guioptions-=r " Turn off right-side scroll bar
+    set guioptions-=m " turn off menu bar
 
     if has("gui_gtk2")
         set guifont=Hack:h14
@@ -132,7 +125,6 @@ if has("gui_running")
         " https://blogs.adobe.com/typblography/2012/09/source-code-pro.html
         set guifont="Source Code Pro"
     elseif has("gui_win32")
-        "set guifont=Consolas:h11
         set guifont=Hack:h10
         source $VIMRUNTIME/mswin.vim
         set background=light
@@ -144,26 +136,15 @@ else
     if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
         set t_Co=256
     endif
-    try
-        set background=dark
-        "let g:solarized_visibility = "high"
-        "let g:solarized_contrast = "high"
-        let g:solarized_termtrans=1
-        let g:solarized_termcolors=256
-        " for some reason, setting it dark then light again shows a different color
-        " scheme entirely than just setting it light to begin with...
-        "colorscheme solarized
-        colorscheme jellybeans
-    catch /^Vim\%((\a\+)\)\=:E185/
-        set background=dark
-        " colorscheme zenburn
-    endtry
+    set background=dark
+    let g:solarized_termtrans=1
+    let g:solarized_termcolors=256
+    colorscheme jellybeans
 endif
 if has("win32") || has("win64")
     colorscheme Tomorrow-Night
     " We want to use Windows Powershell in windows
     set shell=cmd.exe
-    "set shellcmdflag=/c\ powershell.exe\ -NoLogo\ -NoProfile\ -NonInteractive\ -ExecutionPolicy\ RemoteSigned
     set shellpipe=|
     set shellredir=>
 endif
@@ -344,22 +325,6 @@ nnoremap zO zCzO
 " Use ,z to "focus" the current fold.
 nnoremap <leader>z zMzvzz
 
-function! MyFoldText() " {{{
-    let line = getline(v:foldstart)
-
-    let nucolwidth = &fdc + &number * &numberwidth
-    let windowwidth = winwidth(0) - nucolwidth - 3
-    let foldedlinecount = v:foldend - v:foldstart
-
-    " expand tabs into spaces
-    let onetab = strpart('          ', 0, &tabstop)
-    let line = substitute(line, '\t', onetab, 'g')
-
-    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
-    return line . 'â€¦' . repeat(" ",fillcharcount) . foldedlinecount . 'â€¦' . ' '
-endfunction " }}}
-
 fu! CustomFoldText()
     "get first non-blank line
     let fs = v:foldstart
@@ -381,7 +346,6 @@ fu! CustomFoldText()
     return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
 endf
 
-"set foldtext=MyFoldText()
 set foldtext=CustomFoldText()
 
 " }}}
@@ -389,7 +353,6 @@ set foldtext=CustomFoldText()
 "   NERDTree {{{
 " create a shortcut such that Ctrl+n is equivalent to :NERDTreeToggle
 map <silent> <c-n> :NERDTreeToggle<cr>
-"au Filetype nerdtree setlocal nolist
 
 " auto-open NERDTree if file wasn't specified from vim call
 autocmd StdinReadPre * let s:sd_in=1
@@ -398,13 +361,8 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " close Vim when NERDTree is only thing still open:
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-
 let NERDTreeHighlightCursorline=1
-"let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$', 'whoosh_index', 'xapian_index', '.*.pid', 'monitor.py', '.*-fixtures-.*.json', '.*\.o$', 'db.db']
-
-"let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-
 "   }}}
 "   Ruby {{{
 
@@ -454,18 +412,12 @@ au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
-
 let g:neocomplete#enable_at_startup = 1
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" SuperTab like snippets behavior.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
