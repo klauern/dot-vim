@@ -119,11 +119,11 @@ if has("gui_running")
     set guioptions-=m " turn off menu bar
 
     if has("gui_gtk2")
-        set guifont=Hack:h14
-        "set guifont=Inconsolata\ 12
         " See blog post on the font
         " https://blogs.adobe.com/typblography/2012/09/source-code-pro.html
-        set guifont="Source Code Pro"
+        set anti enc=utf-8
+        set guifont=Source\ Code\ Pro\ 12
+        set lines=999 columns=999
     elseif has("gui_win32")
         set guifont=Hack:h10
         source $VIMRUNTIME/mswin.vim
@@ -375,7 +375,7 @@ augroup ft_ruby
     "au Filetype ruby setlocal foldmethod=syntax
 augroup END
 
-" }}}
+"   }}}
 "   Java {{{
 
 augroup ft_java
@@ -395,7 +395,7 @@ augroup ft_vim
     au FileType help setlocal textwidth=78
     au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
-" }}}
+"   }}}
 "   Go {{{
 
 " Go keyboard mappings
