@@ -398,6 +398,11 @@ augroup END
 "   }}}
 "   Go {{{
 
+function! LoadGoPlugin()
+    call plug#load('vim-go')
+endfunction
+command! PlugGo call LoadGoPlugin()
+
 " Go keyboard mappings
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
