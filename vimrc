@@ -24,7 +24,7 @@ Plug 'https://github.com/wincent/Command-T'
 Plug 'https://github.com/Lokaltog/vim-easymotion.git'
 " }}}
 "       Programming: {{{
-Plug 'https://github.com/scrooloose/syntastic.git'
+Plug 'vim-syntastic/syntastic'
 Plug 'https://github.com/majutsushi/tagbar.git'
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/tpope/vim-surround.git'
