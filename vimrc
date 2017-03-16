@@ -12,11 +12,13 @@ Plug 'https://github.com/vim-scripts/Zenburn.git'
 Plug 'https://github.com/chriskempson/vim-tomorrow-theme.git'
 Plug 'https://github.com/sukima/xmledit.git'
 Plug 'bling/vim-airline' " I prefer vim-airline over powerline
+Plug 'lifepillar/vim-solarized8'
+Plug 'jacoborus/tender'
 Plug 'pearofducks/ansible-vim'
 Plug 'jlanzarotta/bufexplorer'
 
 Plug 'junegunn/vim-easy-align'
-Plug 'https://github.com/altercation/vim-colors-solarized.git'
+"Plug 'https://github.com/altercation/vim-colors-solarized.git'
 Plug 'antlypls/vim-colors-codeschool'
 Plug 'nanotech/jellybeans.vim'
 Plug 'othree/xml.vim'
@@ -33,6 +35,8 @@ Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/tpope/vim-git.git'
 Plug 'https://github.com/thinca/vim-fontzoom.git'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
+
+Plug 'juneedahamed/vc.vim'
 
 " Go Programming {{{
 Plug 'fatih/vim-go', { 'for': 'go' }
@@ -134,12 +138,13 @@ if has("gui_running")
     endif
 else
     if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
-        set t_Co=256
+         set t_Co=256
     endif
     set background=dark
     let g:solarized_termtrans=1
     let g:solarized_termcolors=256
-    colorscheme jellybeans
+    "colorscheme jellybeans
+    colorscheme tender
 endif
 if has("win32") || has("win64")
     colorscheme Tomorrow-Night
@@ -395,6 +400,12 @@ augroup ft_vim
     au FileType help setlocal textwidth=78
     au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 "   }}}
 "   Go {{{
 
