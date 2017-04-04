@@ -147,13 +147,13 @@ else
     "colorscheme jellybeans
     colorscheme tender
 endif
-if has("win32") || has("win64")
-    colorscheme Tomorrow-Night
-    " We want to use Windows Powershell in windows
-    set shell=cmd.exe
-    set shellpipe=|
-    set shellredir=>
-endif
+"if has("win32") || has("win64")
+    "colorscheme Tomorrow-Night
+    "" We want to use Windows Powershell in windows
+    "set shell=cmd.exe
+    "set shellpipe=|
+    "set shellredir=>
+"endif
 " }}}
 "   Line bubbling --------------------------------------------------------- {{{
 " Bubble single lines
