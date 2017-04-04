@@ -48,6 +48,7 @@ Plug 'Shougo/vimproc.vim'
 Plug 'Shougo/unite.vim', { 'build' : { 'windows' : 'toolsupdate-dll-mingw', 'cygwin' : 'make -f make_cygwin.mak', 'mac' : 'make -f make_mac.mak', 'linux' : 'make', 'unix' : 'gmake' } }
 " }}}
 Plug 'https://github.com/plasticboy/vim-markdown.git'
+Plug 'junegunn/goyo.vim'
 " Rust Programming
 Plug 'wting/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'rust' }
@@ -487,4 +488,29 @@ function! RelativeNumberToggle()
     endif
 endfunc
 
+" }}}
+"
+" Goyo (Markdown Mode) {{{
+function! s:goyo_enter()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+endfunction
+
+function! s:goyo_leave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+endfunction
+
+autocmd! User GoyoEnter call <SID>goyo_enter()
+autocmd! User GoyoLeave call <SID>goyo_leave()
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+let g:markdown_fenced_languages = ['javascript', 'go', 'java', 'kotlin', 'sh', 'bash']
 " }}}
