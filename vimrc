@@ -141,9 +141,9 @@ else
     if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
          set t_Co=256
     endif
-    set background=dark
-    let g:solarized_termtrans=1
-    let g:solarized_termcolors=256
+    "set background=dark
+    "let g:solarized_termtrans=1
+    "let g:solarized_termcolors=256
     colorscheme jellybeans
 endif
 "if has("win32") || has("win64")
