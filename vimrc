@@ -144,8 +144,7 @@ else
     set background=dark
     let g:solarized_termtrans=1
     let g:solarized_termcolors=256
-    "colorscheme jellybeans
-    colorscheme tender
+    colorscheme jellybeans
 endif
 "if has("win32") || has("win64")
     "colorscheme Tomorrow-Night
