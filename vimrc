@@ -13,6 +13,7 @@ Plug 'https://github.com/chriskempson/vim-tomorrow-theme.git'
 Plug 'https://github.com/sukima/xmledit.git'
 Plug 'bling/vim-airline' " I prefer vim-airline over powerline
 Plug 'lifepillar/vim-solarized8'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'jacoborus/tender'
 Plug 'pearofducks/ansible-vim'
 Plug 'jlanzarotta/bufexplorer'
@@ -45,7 +46,6 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'garyburd/go-explorer', { 'for': 'go' }
 Plug 'Shougo/vimproc.vim'
-Plug 'Shougo/unite.vim', { 'build' : { 'windows' : 'toolsupdate-dll-mingw', 'cygwin' : 'make -f make_cygwin.mak', 'mac' : 'make -f make_mac.mak', 'linux' : 'make', 'unix' : 'gmake' } }
 " }}}
 Plug 'https://github.com/plasticboy/vim-markdown.git'
 Plug 'junegunn/goyo.vim'
@@ -141,10 +141,11 @@ else
     if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
          set t_Co=256
     endif
-    "set background=dark
+    set background=dark
     "let g:solarized_termtrans=1
     "let g:solarized_termcolors=256
-    colorscheme jellybeans
+    colorscheme PaperColor
+"    colorscheme jellybeans
 endif
 "if has("win32") || has("win64")
     "colorscheme Tomorrow-Night
