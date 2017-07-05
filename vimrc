@@ -115,7 +115,7 @@ let maplocalleader = "\\"
 "   Environments (GUI/Console --------------------------------------------- {{{
 if has("gui_running")
     set background=dark
-    colorscheme solarized
+    colorscheme PaperColor
     " See Adobe blog on Source Code Pro:
     " https://blogs.adobe.com/typblography/2012/09/source-code-pro.html
     set guioptions=egmrt
