@@ -16,6 +16,7 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'jacoborus/tender'
 Plug 'pearofducks/ansible-vim'
+Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'jlanzarotta/bufexplorer'
 
 Plug 'junegunn/vim-easy-align'
