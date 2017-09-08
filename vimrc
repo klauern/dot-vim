@@ -26,6 +26,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'othree/xml.vim'
 Plug 'https://github.com/wincent/Command-T'
 Plug 'https://github.com/Lokaltog/vim-easymotion.git'
+Plug 'ekalinin/Dockerfile.vim'
 " }}}
 "       Programming: {{{
 Plug 'vim-syntastic/syntastic'
