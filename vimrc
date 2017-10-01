@@ -3,6 +3,7 @@
 " since I use ~/.vim everywhere, it's not ~/vimfiles, but .vim, so the next two lines are
 " modified a bit from the norm to make this work...
 set rtp+=~/.vim/
+"   VimPlug Begin {{{
 call plug#begin('$HOME/.vim/plugged')
 "       Generally Useful:  {{{
 Plug 'https://github.com/scrooloose/nerdtree.git'
@@ -38,7 +39,6 @@ Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/tpope/vim-git.git'
 Plug 'https://github.com/thinca/vim-fontzoom.git'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
-
 Plug 'juneedahamed/vc.vim'
 
 " Go Programming {{{
@@ -55,8 +55,9 @@ Plug 'junegunn/goyo.vim'
 Plug 'wting/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'rust' }
 
-" }}}
+" End Programming }}}
 call plug#end()
+"   VimPlug End }}}
 
 set nocompatible
 
@@ -164,14 +165,12 @@ nmap <C-Down> ]e
 " Bubble multiple lines
 vmap <C-Down> ]egv
 vmap <C-Up> [egv
-" }}}
+"   END Line bubbling }}}
 "   Everything Else ------------------------------------------------------- {{{
 set vb t_vb=
 set ruler
 set backup
 set writebackup
-
-
 set scrolloff=3
 
 " Backup directories
