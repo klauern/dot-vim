@@ -29,7 +29,7 @@ Plug 'https://github.com/wincent/Command-T'
 Plug 'https://github.com/Lokaltog/vim-easymotion.git'
 Plug 'ekalinin/Dockerfile.vim'
 " }}}
-"       Programming: {{{
+" Programming: {{{
 Plug 'vim-syntastic/syntastic'
 Plug 'https://github.com/majutsushi/tagbar.git'
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
@@ -51,9 +51,10 @@ Plug 'Shougo/vimproc.vim'
 " }}}
 Plug 'https://github.com/plasticboy/vim-markdown.git'
 Plug 'junegunn/goyo.vim'
-" Rust Programming
+" Rust Programming {{{
 Plug 'wting/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'rust' }
+" End Rust Programming }}}
 
 " End Programming }}}
 call plug#end()
@@ -145,19 +146,9 @@ else
          set t_Co=256
     endif
     set background=dark
-    "let g:solarized_termtrans=1
-    "let g:solarized_termcolors=256
     colorscheme PaperColor
-"    colorscheme jellybeans
 endif
-"if has("win32") || has("win64")
-    "colorscheme Tomorrow-Night
-    "" We want to use Windows Powershell in windows
-    "set shell=cmd.exe
-    "set shellpipe=|
-    "set shellredir=>
-"endif
-" }}}
+" End Environments (GUI/Console) }}}
 "   Line bubbling --------------------------------------------------------- {{{
 " Bubble single lines
 nmap <C-Up> [e
