@@ -71,7 +71,7 @@ set showmode
 set showcmd
 set hidden
 set visualbell
-"set cursorline
+set cursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start
@@ -136,7 +136,8 @@ if has("gui_running")
     elseif has("gui_win32")
         set guifont=Hack:h10
         source $VIMRUNTIME/mswin.vim
-        set background=light
+        set background=dark
+        colorscheme jellybeans
         winp 0 0
         win 300 300 " It'll be too large but just maximize enough
         au GUIEnter * simalt ~x
@@ -175,7 +176,7 @@ nnoremap <silent> <Leader>= :ZoomReset<CR>
 " Cursor Color highlight
 ":hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 ":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-:nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+":nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
 set backspace=indent,eol,start " make backspace a more flexible
 au FocusLost * :wa " save when tab is out of focus
