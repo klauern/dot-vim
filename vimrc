@@ -29,7 +29,7 @@ Plug 'https://github.com/Lokaltog/vim-easymotion.git'
 Plug 'ekalinin/Dockerfile.vim'
 " }}}
 "       Programming: {{{
-Plug 'vim-syntastic/syntastic'
+Plug 'https://github.com/vim-syntastic/syntastic'
 Plug 'https://github.com/majutsushi/tagbar.git'
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/tpope/vim-surround.git'
@@ -96,6 +96,15 @@ set autoread
 set title
 
 set tags+=tags;$HOME
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
 
 " }}}
 "   Tabs, spaces, wrapping ------------------------------------------------ {{{
