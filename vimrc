@@ -3,7 +3,7 @@
 " since I use ~/.vim everywhere, it's not ~/vimfiles, but .vim, so the next two lines are
 " modified a bit from the norm to make this work...
 set rtp+=~/.vim/
-call plug#begin('$HOME/.vim/plugged')
+silent! call plug#begin('$HOME/.vim/plugged')
 "       Generally Useful:  {{{
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/kien/ctrlp.vim.git'
