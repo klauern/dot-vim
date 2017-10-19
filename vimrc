@@ -4,6 +4,7 @@
 " modified a bit from the norm to make this work...
 set rtp+=~/.vim/
 silent! call plug#begin('$HOME/.vim/plugged')
+"   VimPlug Begin {{{
 "       Generally Useful:  {{{
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/kien/ctrlp.vim.git'
@@ -38,7 +39,6 @@ Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/tpope/vim-git.git'
 Plug 'https://github.com/thinca/vim-fontzoom.git'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
-
 Plug 'juneedahamed/vc.vim'
 
 " Go Programming {{{
@@ -51,12 +51,14 @@ Plug 'Shougo/vimproc.vim'
 " }}}
 Plug 'https://github.com/plasticboy/vim-markdown.git'
 Plug 'junegunn/goyo.vim'
-" Rust Programming
+" Rust Programming {{{
 Plug 'wting/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'rust' }
+" End Rust Programming }}}
 
-" }}}
+" End Programming }}}
 call plug#end()
+"   VimPlug End }}}
 
 set nocompatible
 
@@ -69,7 +71,7 @@ set showmode
 set showcmd
 set hidden
 set visualbell
-"set cursorline
+set cursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start
@@ -143,7 +145,8 @@ if has("gui_running")
     elseif has("gui_win32")
         set guifont=Hack:h10
         source $VIMRUNTIME/mswin.vim
-        set background=light
+        set background=dark
+        colorscheme jellybeans
         winp 0 0
         win 300 300 " It'll be too large but just maximize enough
         au GUIEnter * simalt ~x
@@ -153,19 +156,9 @@ else
          set t_Co=256
     endif
     set background=dark
-    "let g:solarized_termtrans=1
-    "let g:solarized_termcolors=256
     colorscheme PaperColor
-"    colorscheme jellybeans
 endif
-"if has("win32") || has("win64")
-    "colorscheme Tomorrow-Night
-    "" We want to use Windows Powershell in windows
-    "set shell=cmd.exe
-    "set shellpipe=|
-    "set shellredir=>
-"endif
-" }}}
+" End Environments (GUI/Console) }}}
 "   Line bubbling --------------------------------------------------------- {{{
 " Bubble single lines
 nmap <C-Up> [e
@@ -173,14 +166,12 @@ nmap <C-Down> ]e
 " Bubble multiple lines
 vmap <C-Down> ]egv
 vmap <C-Up> [egv
-" }}}
+"   END Line bubbling }}}
 "   Everything Else ------------------------------------------------------- {{{
 set vb t_vb=
 set ruler
 set backup
 set writebackup
-
-
 set scrolloff=3
 
 " Backup directories
@@ -194,7 +185,7 @@ nnoremap <silent> <Leader>= :ZoomReset<CR>
 " Cursor Color highlight
 ":hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 ":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-:nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+":nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
 set backspace=indent,eol,start " make backspace a more flexible
 au FocusLost * :wa " save when tab is out of focus
