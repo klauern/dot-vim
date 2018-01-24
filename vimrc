@@ -472,6 +472,7 @@ let g:go_highlight_types = 1
       \ 'S'  : 'S',
       \ '' : 'S',
       \ }
+let g:powerline_pycmd = "py3"
 "   }}}
 " }}}
 " Relative and Absolute Line Number toggling {{{
