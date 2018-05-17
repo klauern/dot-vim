@@ -156,7 +156,7 @@ else
          set t_Co=256
     endif
     set background=dark
-    colorscheme PaperColor
+    silent! colorscheme PaperColor
 endif
 " End Environments (GUI/Console) }}}
 "   Line bubbling --------------------------------------------------------- {{{
