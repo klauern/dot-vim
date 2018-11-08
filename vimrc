@@ -46,7 +46,6 @@ Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
 Plug 'Shougo/neocomplete.vim', { 'for': 'go' }
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'garyburd/go-explorer', { 'for': 'go' }
 Plug 'Shougo/vimproc.vim'
 " }}}
 Plug 'https://github.com/plasticboy/vim-markdown.git'
