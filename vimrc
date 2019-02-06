@@ -55,6 +55,12 @@ Plug 'wting/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'rust' }
 " End Rust Programming }}}
 
+" Ruby Programming {{{
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-endwise'
+" }}}
+
 " End Programming }}}
 call plug#end()
 "   VimPlug End }}}
