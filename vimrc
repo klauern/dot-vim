@@ -40,6 +40,7 @@ Plug 'https://github.com/tpope/vim-git.git'
 Plug 'https://github.com/thinca/vim-fontzoom.git'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
 Plug 'juneedahamed/vc.vim'
+Plug 'tsandall/vim-rego'
 
 " Go Programming {{{
 Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
