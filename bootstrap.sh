@@ -9,5 +9,5 @@ readonly PROGDIR=$(readlink -m "$(dirname "$0")")
 cd $PROGDIR
 mkdir -p tmp/{backup,swap,undo}
 
-rm ~/.vimrc # if it exists
+rm -f ~/.vimrc # if it exists
 ln -rs vimrc ../.vimrc
