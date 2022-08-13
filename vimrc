@@ -3,6 +3,7 @@
 " since I use ~/.vim everywhere, it's not ~/vimfiles, but .vim, so the next two lines are
 " modified a bit from the norm to make this work...
 set rtp+=~/.vim/
+set rtp+=/usr/local/opt/fzf
 silent! call plug#begin('$HOME/.vim/plugged')
 "   VimPlug Begin {{{
 "       Generally Useful:  {{{
@@ -19,6 +20,7 @@ Plug 'jacoborus/tender'
 Plug 'pearofducks/ansible-vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'jlanzarotta/bufexplorer'
+Plug 'airblade/vim-rooter'
 
 Plug 'junegunn/vim-easy-align'
 "Plug 'https://github.com/altercation/vim-colors-solarized.git'
@@ -28,6 +30,7 @@ Plug 'othree/xml.vim'
 Plug 'https://github.com/wincent/Command-T'
 Plug 'https://github.com/Lokaltog/vim-easymotion.git'
 Plug 'ekalinin/Dockerfile.vim'
+
 " }}}
 "       Programming: {{{
 Plug 'https://github.com/vim-syntastic/syntastic'
