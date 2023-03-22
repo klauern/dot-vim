@@ -64,6 +64,9 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise'
 " }}}
+" Nix {{{
+Plug 'lnl7/vim-nix'
+" End Nix }}}
 
 " End Programming }}}
 call plug#end()
