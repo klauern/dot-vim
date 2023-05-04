@@ -3,7 +3,7 @@
 " since I use ~/.vim everywhere, it's not ~/vimfiles, but .vim, so the next two lines are
 " modified a bit from the norm to make this work...
 set rtp+=~/.vim/
-set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/opt/fzf
 silent! call plug#begin('$HOME/.vim/plugged')
 "   VimPlug Begin {{{
 "       Generally Useful:  {{{
